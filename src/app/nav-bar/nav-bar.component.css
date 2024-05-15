@@ -1,0 +1,55 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+nav{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+.img{
+    height: 2.5rem;
+    width: auto;
+}
+.btn{
+    text-decoration: none;
+    background-color: rgba(123, 233, 27, 0.871);
+    border: 1px solid black;
+    border-radius: 7px;
+    padding: 0.5rem 0.75rem;
+}
+.btn:hover{
+    cursor: pointer;
+}
+.user-img{
+    height: 1.5rem;
+    width: auto;
+    margin-right: 0.5rem;
+    margin-top: 0.25rem;
+}
+.login-user{
+    display: flex;
+    margin-left:1rem;
+}
+nav .menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.log-in-logo{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+}
+
+.menu a{
+    text-decoration: none;
+    color: black;
+}
+.menu > a > li{
+    list-style: none;
+    margin-left: 2rem;
+}
