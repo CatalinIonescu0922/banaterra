@@ -11,6 +11,54 @@
 
 	</head>
 	<body>
-		
+		<br>
+		<div class="button-container">
+			<div class="button-column">
+			  <button>Bătălie</button>
+			  <button>Dragoste</button>
+			  <button>Prietenie</button>
+			  <button>Suflet</button>
+			</div>
+		  
+			<div class="button-column">
+			  <button>Credință</button>
+			  <button>Fericire</button>
+			  <button>Reamintire</button>
+			  <button>Timp</button>
+			</div>
+		  
+			<div class="button-column">
+			  <button>Cunoaștere de sine</button>
+			  <button>Individualitate</button>
+			  <button>Sănătate</button>
+			  <button>Viață</button>
+			</div>
+		  
+			<div class="button-column">
+			  <button>Cunoașterea naturii umane</button>
+			  <button>Înțelepciune</button>
+			  <button>Singurătate</button>
+			  <button>Viața de zi cu zi</button>
+			</div>
+		  
+			<div class="button-column">
+			  <button>Decizie</button>
+			  <button>Libertate</button>
+			  <button>Succes</button>
+			</div>
+		  </div>		
+		  <br>
+
+		  <div class="topics-container">
+			<h2>Subiecte</h2>
+			<div class="topic" *ngFor="let quote of quotes">
+			  <app-quote
+				image="{{ quote.image }}"
+				title="{{ quote.title }}"
+				author="{{ quote.author }}"
+				genre="{{ quote.genre }}">
+			  </app-quote>
+			</div>
+		  </div>
 	</body>
 </html>
