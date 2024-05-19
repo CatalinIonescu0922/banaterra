@@ -8,6 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './nav-bar.component.css',
 })
 export class NavBarComponent {
-  logoPath = "../assets/img/logo.png";
-  userPhoto="../assets/img/nouser.jpeg";
+  logoPath = '../assets/img/logo.png';
+  userPhoto = '../assets/img/nouser.jpeg';
+  ChangeLanguage(lang: any) {
+    const selectedLanguage = lang.target.value;
+    
+  }
 }
