@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './quote.component.html',
-  styleUrl: './quote.component.css',
+  styleUrls: ['./quote.component.css'],
   inputs: ['image', 'title', 'author', 'genre'],
 })
 export class QuoteComponent {

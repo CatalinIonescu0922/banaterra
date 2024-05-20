@@ -1,20 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<!-- <meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
-		<title>Banaterra</title>
 
     <section class="banner">
 			<img src="../../assets/img/banner_topics.jpg" />
     </section>
 
-	</head>
-	<body>
 		<br>
 		<div class="button-container">
 			<div class="button-column">
-			  <button>Bătălie</button>
+			  <button (click)="toggleQuoteDisplay()">Bătălie</button>
 			  <button>Dragoste</button>
 			  <button>Prietenie</button>
 			  <button>Suflet</button>
@@ -49,11 +41,9 @@
 		  </div>		
 		  <br>
 
-		  <div class="topics-container">
+		  <div class="topics-container" *ngIf="showQuote">
 			<h2 id="myHeader">Artă, literatură, estetică </h2> <!-- Aici am modificat din "Subiecte"-->
 			<div class="topic">
 			  <app-quote> </app-quote>
 			</div>
 		  </div>
-	</body>
-</html>
