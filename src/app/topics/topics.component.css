@@ -3,6 +3,14 @@
     height: auto;
 }
 
+#myHeader {
+    background-color: #f1f1f1;  /* Light gray background */
+    padding: 20px;
+    display: flex;  /* Arrange elements horizontally */
+    justify-content: space-between;  /* Distribute content with space in-between */
+    align-items: center;  /* Align content vertically in the center */
+  }
+
 .button-container {
     display: flex;
     flex-wrap: wrap;
