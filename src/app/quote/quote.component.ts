@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-quote',
@@ -13,7 +13,11 @@ export class QuoteComponent {
   title = '';
   author = '';
   genre = '';
+  @Input() quote: any;
+  /*
   quotes: any[] = [
     { image: '../../assets/img/gustav.jpg', title: 'Morala artei stă chiar în frumuseţea ei.', author: 'Gustave Flaubert', genre: 'Artă, literatură, estetică' },
+    {image: '../../assets/img/gustav.jpg', title: 'Ion Marius', author: 'Fiat', genre: 'munte, pescuit' },
   ];
+  */
 }

@@ -6,8 +6,8 @@
 		<br>
 		<div class="button-container">
 			<div class="button-column">
-			  <button (click)="toggleQuoteDisplay()">Bătălie</button>
-			  <button>Dragoste</button>
+			  <button (click)="selectQuote(0)">Bătălie</button>
+			  <button (click) = "selectQuote(1)">Dragoste</button>
 			  <button>Prietenie</button>
 			  <button>Suflet</button>
 			</div>
@@ -41,9 +41,9 @@
 		  </div>		
 		  <br>
 
-		  <div class="topics-container" *ngIf="showQuote">
+		  <div class="topics-container" *ngIf="currentQuote">
 			<h2 id="myHeader">Artă, literatură, estetică </h2> <!-- Aici am modificat din "Subiecte"-->
 			<div class="topic">
-			  <app-quote> </app-quote>
+			  <app-quote [quote] = "currentQuote"> </app-quote>
 			</div>
 		  </div>

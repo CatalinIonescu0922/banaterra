@@ -9,12 +9,15 @@ import { CommonModule } from '@angular/common';
     styleUrls: ['./topics.component.css'],
     imports: [QuoteComponent, CommonModule]
 })
-export class TopicsComponent {
-  showQuote = false;
 
-  // Method to toggle the visibility of the QuoteComponent
-  toggleQuoteDisplay() {
-    this.showQuote = !this.showQuote;
-    console.log("toggleQuoteDisplay called, showQuote is: ", this.showQuote);
+export class TopicsComponent {
+  quotes = [
+    { image: '../../assets/img/gustav.jpg', title: 'Morala artei stă chiar în frumuseţea ei.', author: 'Gustave Flaubert', genre: 'Artă, literatură, estetică' },
+    { image: '../../assets/img/gustav.jpg', title: 'Ion Marius', author: 'Fiat', genre: 'Munte, Pescuit' }
+  ];
+  currentQuote: any = null;
+
+  selectQuote(index: number): void {
+    this.currentQuote = this.quotes[index];
   }
 }
