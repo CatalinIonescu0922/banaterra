@@ -3,10 +3,12 @@ import { HomeComponentComponent } from './home-component/home-component.componen
 import { TopicsComponent } from './topics/topics.component';
 import { AuthorsComponent } from './authors/authors.component';
 import { LearnComponent } from './learn/learn.component';
+import { MMComponent } from './mm/mm.component';
 
 export const routes: Routes = [
     {path : "" , component : HomeComponentComponent},
     {path : "topics" ,component: TopicsComponent},
     {path : "authors" , component : AuthorsComponent},
-    {path : "learn", component : LearnComponent}
+    {path : "learn", component : LearnComponent},
+    {path : "mm", component : MMComponent}
 ];
