@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { NavBarComponent } from '../nav-bar/nav-bar.component'; 
 @Component({
-  selector: 'app-home-component',
+  selector: 'app-authors',
   standalone: true,
   imports: [NavBarComponent],
-  templateUrl: './home-component.component.html',
-  styleUrl: './home-component.component.css'
+  templateUrl: './authors.component.html',
+  styleUrl: './authors.component.css'
 })
-export class HomeComponentComponent {
+export class AuthorsComponent {
 
 }

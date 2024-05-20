@@ -1,26 +1,38 @@
 <nav>
    <div class="log-in-logo">
-    <img [src]="logoPath" alt="sorry" class="img">
-    <div class="login-user">
-       <img [src]="userPhoto" alt="" class="user-img">
+     <img [src]="logoPath" alt="sorry" class="img" />
+     <div class="drop-down">
+       <select
+         name="language"
+         id="language-select"
+         (change)="ChangeLanguage($event)"
+       >
+         <option value="english">English</option>
+         <option value="romana">Romana</option>
+         <option value="magyar">Magyar</option>
+       </select>
+       <div class="icon-container">
+         <i class="fa-solid fa-caret-down"></i>
+       </div>
+     </div>
+     <div class="login-user">
+       <img [src]="userPhoto" alt="" class="user-img" />
        <button class="btn">Log in</button>
-    </div>
-  </div>
-  <ul class="menu">
-     <a href="">
-        <li>Home</li>
-    </a>
- <a href="">
-        <li>Authors</li>
-     </a>
-     <a href="">
-        <li>Topics</li>
-     </a>
-     <a href="">
-        <li>MM</li>
-     </a>
-     <a href="">
-        <li>Learn</li>
-     </a>
-  </ul>
-</nav>
+     </div>
+   </div>
+   <ul class="menu">
+     <li><a href="" routerLink="/topics" routerLinkActive="active">Home</a></li>
+     <li>
+       <a href="/authors" routerLink="/authors" routerLinkActive="active"
+         >Authors</a
+       >
+     </li>
+     <li>
+       <a href="/topics" routerLink="" routerLinkActive="active">Topics</a>
+     </li>
+     <li><a href="/mm" routerLink="/mm" routerLinkActive="active">MM</a></li>
+     <li>
+       <a href="/learn" routerLink="/learn" routerLinkActive="active">Learn</a>
+     </li>
+   </ul>
+ </nav>
