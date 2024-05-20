@@ -51,13 +51,8 @@
 
 		  <div class="topics-container">
 			<h2 id="myHeader">Artă, literatură, estetică </h2> <!-- Aici am modificat din "Subiecte"-->
-			<div class="topic" *ngFor="let quote of quotes">
-			  <app-quote
-				image="{{ quote.image }}"
-				title="{{ quote.title }}"
-				author="{{ quote.author }}"
-				genre="{{ quote.genre }}">
-			  </app-quote>
+			<div class="topic">
+			  <app-quote> </app-quote>
 			</div>
 		  </div>
 	</body>

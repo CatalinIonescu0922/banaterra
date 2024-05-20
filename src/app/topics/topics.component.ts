@@ -10,7 +10,5 @@ import { CommonModule } from '@angular/common';
     imports: [QuoteComponent, CommonModule]
 })
 export class TopicsComponent {
-  quotes: any[] = [
-    { image: '../../assets/img/gustav.jpg', title: 'Morala artei stă chiar în frumuseţea ei.', author: 'Gustave Flaubert', genre: 'Artă, literatură, estetică' },
-  ];
+  
 }
