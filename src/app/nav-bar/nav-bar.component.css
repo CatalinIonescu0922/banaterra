@@ -22,7 +22,7 @@ nav {
 }
 .btn {
   text-decoration: none;
-  background-color: rgba(123, 233, 27, 0.871);
+  background-color: #d9534f;
   border-radius: 7px;
   padding: 0.5rem 0.75rem;
   transition: all;
@@ -73,8 +73,8 @@ nav .menu {
   appearance: none; /* remove default appearance set by the browser */
   outline: none; /* remove the outline shown on focus */
   cursor: pointer; /* change the mouse cursor icon */
-  color: navy; /* text color */
-  background-color: rgb(83, 214, 31);
+  color: black; /* text color */
+  background-color: #d9534f;
   border: none;
   border-radius: 5px; /* round the border corners */
   height: 2.15rem;
@@ -93,7 +93,7 @@ nav .menu {
   height: 100%;
   position: absolute;
   right: 0;
-  background-color: rgb(18, 235, 18);
+ background-color: #b53a36;
   display: flex;
   align-items: center;
   justify-content: center;
