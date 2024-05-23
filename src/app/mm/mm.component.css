@@ -52,13 +52,13 @@
   margin-right: 100px;
 }
 
-h5 {
+.left_h5 {
   font-size: 28px;
   color: #333;
   font-weight: bold;
 }
 
-p {
+.right_p {
   font-size: 20px;
   color: #555;
   line-height: 1.6;
@@ -112,6 +112,59 @@ p {
 
 .auth-message a:hover {
   background-color: #0056b3;
+}
+
+/*old people table*/
+
+.table-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 10px auto; /* Smaller margins */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.old_people {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  text-align: left;
+  background-color: #fff; /* White background for the table */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for slight elevation effect */
+}
+
+.old_people thead th {
+  background-color: #fff; /* White background for the header */
+  color: #333; /* Dark text color for the header */
+  font-weight: bold; /* Make the header text bold */
+}
+
+.old_people thead th:nth-child(2) {
+  text-align: center;
+}
+
+.old_people th, .old_people td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+}
+
+.old_people tbody tr:nth-of-type(even) {
+  background-color: #f9f9f9; /* Light grey background for even rows */
+}
+
+.old_people tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.old_people tbody tr:last-of-type {
+  border-bottom: 1px solid #ddd; /* Match the border with the other cells */
+}
+
+.old_people tbody td:nth-child(2) {
+  text-align: center;
 }
 
 /*footer*/
