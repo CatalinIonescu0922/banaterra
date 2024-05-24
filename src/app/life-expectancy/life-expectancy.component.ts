@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
+
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 
 @Component({
@@ -8,6 +9,6 @@ import { NavBarComponent } from '../nav-bar/nav-bar.component';
   templateUrl: './life-expectancy.component.html',
   styleUrl: './life-expectancy.component.css'
 })
-export class LifeExpectancyComponent {
+export class LifeExpectancyComponent{
 
 }
