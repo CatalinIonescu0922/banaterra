@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MMComponent } from './mm.component';
 
-describe('HomeComponentComponent', () => {
+describe('MMComponent', () => {
   let component: MMComponent;
   let fixture: ComponentFixture<MMComponent>;
 
