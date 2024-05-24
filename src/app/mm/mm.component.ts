@@ -8,11 +8,13 @@ import { LifeExpectancyComponent } from '../life-expectancy/life-expectancy.comp
 import { BiblicalLongevivsComponent } from '../biblical-longevivs/biblical-longevivs.component';
 import { PlantsComponent } from '../plants/plants.component';
 import { AnimalsComponent } from '../animals/animals.component';
+import { TimeSpentComponent } from '../time-spent/time-spent.component';
+import { EtaCalculatorComponent } from '../eta-calculator/eta-calculator.component';
 
 @Component({
   selector: 'app-mm',
   standalone: true,
-  imports: [NavBarComponent,LifeExpectancyComponent,BiblicalLongevivsComponent,PlantsComponent,AnimalsComponent],
+  imports: [NavBarComponent,LifeExpectancyComponent,BiblicalLongevivsComponent,PlantsComponent,AnimalsComponent,TimeSpentComponent,EtaCalculatorComponent],
   templateUrl: './mm.component.html',
   styleUrl: './mm.component.css'
 })

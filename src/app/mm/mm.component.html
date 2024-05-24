@@ -1,4 +1,5 @@
 <app-nav-bar></app-nav-bar>
+
 <div class="Title-above-photo">
   <h1>Memento Mori</h1>
 </div>
@@ -29,14 +30,13 @@
   </div>
 </section>
 
-
-<div class="time_spent">
-  <h5>Timpul petrecut pe acest pamant</h5>
+<div class="text_before_time_specifiers">
+  <p>Calculat din mediile speranței de viață. Pe baza locației dvs. Este mai mult un avertisment decât o garanție.</p>
 </div>
 
-<div class="time_left">
-  <h5>Timpul care ti-a ramas</h5>
-</div>
+<app-time-spent></app-time-spent>
+
+<app-eta></app-eta>
 
 <div class="table-container">
   <table class="old_people">
@@ -60,10 +60,10 @@
 </div>
 
 <div class="tables" id="tables_id">
-  <a href="life-expectancy">life-expectancy</a>
-  <a href="biblical-longevivs">biblical-longevivs</a>
-  <a href="animals">animals</a>
-  <a href="plants">plants</a>
+  <a href="life-expectancy">Life-Expectancy</a>
+  <a href="biblical-longevivs">Biblical-Longevivs</a>
+  <a href="animals">Animals</a>
+  <a href="plants">Plants</a>
 </div>
 
 <!-- codul de mai jos trebuie inlocuit cu componenta footer -->
