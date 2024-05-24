@@ -56,6 +56,14 @@
     text-align: left;
 }
 
+.life-expectancy thead th:nth-child(2) {
+    text-align: center;
+}
+
+.life-expectancy thead th:nth-child(3) {
+    text-align: center;
+}
+
 .life-expectancy th {
     font-weight: bold; /* Ensure headers are bold */
     padding: 12px 15px;
@@ -77,4 +85,12 @@
 
 .life-expectancy tbody tr:last-of-type {
     border-bottom: 1px solid #ddd; /* Match the other rows */
+}
+
+.life-expectancy tbody td:nth-child(2) {
+    text-align: center;
+}
+
+.life-expectancy tbody td:nth-child(3) {
+    text-align: center;
 }
