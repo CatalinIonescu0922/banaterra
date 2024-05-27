@@ -1,0 +1,23 @@
+<section class="banner">
+  <img [src]="imagePath" />
+</section>
+
+<br>
+<<div class="button-container">
+  <div *ngFor="let buttonRow of buttonLabels">
+    <div class="button-column">
+      <button *ngFor="let btnLabel of buttonRow; let i = index" (click)="selectQuote(i)">
+        {{ btnLabel }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="topics-container" *ngIf="currentQuote">
+  <h2 id="myHeader">{{ headerLabel }}</h2>
+  <div class="topic">
+    <app-quote [quote]="currentQuote"></app-quote>
+  </div>
+</div>
