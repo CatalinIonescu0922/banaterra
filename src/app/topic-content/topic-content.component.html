@@ -4,9 +4,9 @@
 
 <br>
 <<div class="button-container">
-  <div *ngFor="let buttonRow of buttonLabels">
+  <div *ngFor="let buttonRow of buttonLabels; let i = index">
     <div class="button-column">
-      <button *ngFor="let btnLabel of buttonRow; let i = index" (click)="selectQuote(i)">
+      <button *ngFor="let btnLabel of buttonRow; let j = index" (click)="selectQuote(i*5+j)">
         {{ btnLabel }}
       </button>
     </div>
@@ -15,9 +15,14 @@
 
 <br>
 
-<div class="topics-container" *ngIf="currentQuote">
-  <h2 id="myHeader">{{ headerLabel }}</h2>
-  <div class="topic">
-    <app-quote [quote]="currentQuote"></app-quote>
+<!-- Single Quote Display -->
+<div *ngIf="currentQuote">
+  <app-quote [quote]="currentQuote"></app-quote>
+</div>
+
+<!-- Multiple Quotes Display -->
+<div *ngIf="currentQuotes.length > 0">
+  <div *ngFor="let quote of currentQuotes">
+    <app-quote [quote]="quote"></app-quote>
   </div>
 </div>
