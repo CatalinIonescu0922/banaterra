@@ -3,6 +3,7 @@ import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { AuthorsService } from '../authors.service';
 import { FooterComponent } from '../footer/footer.component';
 import { ActivatedRoute } from '@angular/router';
+import { Author } from '../../iauthors';
 
 @Component({
   selector: 'app-authors',
@@ -14,7 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 export class AuthorsComponent implements OnInit {
   author: any;
   tagId!: string; // Using the non-null assertion operator
-
+  authors : Author[] = [];
   constructor(
     private authorsService: AuthorsService,
     private route: ActivatedRoute
@@ -28,6 +29,10 @@ export class AuthorsComponent implements OnInit {
         this.getAuthorInfo();
       }
     });
+    this.authorsService.getAuthors().subscribe((data) => {
+        this.authors = data;
+        console.log(this.authors);
+      });
   }
 
   getAuthorInfo(): void {
