@@ -6,6 +6,7 @@ import { LearnComponent } from './learn/learn.component';
 import { DonateComponent } from './donate/donate.component';
 import { MMComponent } from './mm/mm.component';
 import { LoginComponent } from './login/login.component';
+import { AddAuthorsComponent } from './add-authors/add-authors.component';
 export const routes: Routes = [
     {path : "" , component : HomeComponentComponent},
     {path : "topics" ,component: TopicsComponent},
@@ -13,5 +14,6 @@ export const routes: Routes = [
     {path : "learn", component : LearnComponent},
     {path : "donate" , component : DonateComponent},
     {path : "mm" , component : MMComponent},
-    {path : "login" , component : LoginComponent}
+    {path : "login" , component : LoginComponent},
+    {path : "add-authors",component : AddAuthorsComponent}
 ];
