@@ -31,6 +31,10 @@ nav {
   text-align: center;
   transition-duration: 0.2s;
 }
+.btn a{
+  text-decoration: none;
+  color: black;
+}
 .btn:hover {
   cursor: pointer;
   transform: scale(1.2);
