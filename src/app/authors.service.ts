@@ -2,17 +2,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Author } from '../iauthors';
-import { map } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthorsService {
-  private baseUrl = 'http://localhost:3000/authors';
+  private baseUrl = 'http://localhost:8000/authors';
+
   constructor(private http: HttpClient) {}
+
   getAuthorByTagId(tagId: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/${tagId}`);
   }
+
   getAuthors(): Observable<Author[]> {
     return this.http.get<Author[]>(this.baseUrl).pipe(
       map((authors) =>
@@ -23,6 +26,7 @@ export class AuthorsService {
       )
     );
   }
+
   private decodeHTML(html: string): string {
     if (typeof document !== 'undefined') {
       const txt = document.createElement('textarea');
@@ -37,5 +41,5 @@ export class AuthorsService {
         .replace(/&quot;/g, '"')
         .replace(/&#39;/g, "'");
     }
-  } 
+  }
 }

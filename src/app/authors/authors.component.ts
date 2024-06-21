@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { AuthorsService } from '../authors.service';
 import { FooterComponent } from '../footer/footer.component';
@@ -8,14 +9,15 @@ import { Author } from '../../iauthors';
 @Component({
   selector: 'app-authors',
   standalone: true,
-  imports: [NavBarComponent, FooterComponent],
+  imports: [NavBarComponent, FooterComponent, CommonModule],
   templateUrl: './authors.component.html',
   styleUrls: ['./authors.component.css'], // Fixed the typo from styleUrl to styleUrls
 })
 export class AuthorsComponent implements OnInit {
   author: any;
-  tagId!: string; // Using the non-null assertion operator
-  authors : Author[] = [];
+  tagId!: string; 
+  authors: Author[] = [];
+
   constructor(
     private authorsService: AuthorsService,
     private route: ActivatedRoute
@@ -29,10 +31,10 @@ export class AuthorsComponent implements OnInit {
         this.getAuthorInfo();
       }
     });
+
     this.authorsService.getAuthors().subscribe((data) => {
-        this.authors = data;
-        console.log(this.authors);
-      });
+      this.authors = data;
+    });
   }
 
   getAuthorInfo(): void {

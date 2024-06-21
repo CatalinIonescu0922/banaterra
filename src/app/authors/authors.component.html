@@ -14,33 +14,14 @@
         </div>
     </header>
     <main>
-        <div class="authors">
-            <div class="author">
-                <img src="../../assets/img/test.jpg" alt="Gustave Flaubert">
-                <h2>Gustavt Nebun</h2>
-                <p>3 citate</p>
-                <p>(12 decembrie 1821, Rouen, Franța – 8 mai 1880, Croisset, Canteleu, Normandia Superioară, Franța) romancier și dramaturg francez, cunoscut mai ales datorită romanului Madame Bovary (Doamna Bovary) operă capitală pentru literatura secolului al XIX-lea.</p>
-            </div>
-            <div class="author">
-                <img src="../../assets/img/test.jpg" alt="Felix Aderca">
-                <h2>Felix Aderca</h2>
-                <p>0 citate</p>
-                <p>Froim Zelig Adercu (26 martie 1891, Puiești⁠, județul Tutova, România – 12 decembrie 1962, București⁠, Republica Populară Română) prozator, romancier, poet, dramaturg, estetician, eseist și critic literar român, de origine evreiască, considerat ca un reprezentant al modernismului literar în cadrul literaturii române.</p>
-            </div>
-            <div class="author">
-                <img src="../../assets/img/test.jpg" alt="Aleksandr Herzen">
-                <h2>Aleksandr Herzen</h2>
-                <p>2 citate</p>
-                <p>Aleksandr Ivanovici Herzen (6 aprilie 1812 - 21 ianuarie 1870) prozator, filozof și democrat-revoluționar rus.</p>
-            </div>
-            <div class="author">
-                <img src="../../assets/img/test.jpg" alt="Samuel Johnson">
-                <h2>Samuel Johnson</h2>
-                <p>1 citate</p>
-                <p>numit adesea Dr. Johnson (18 septembrie 1709 - 13 decembrie 1784), scriitor englez care a adus contribuții durabile în calitate de poet, dramaturg, eseist, moralist, critic, biograf, editor și lexicograf.</p>
-            </div>
+      <div class="authors">
+        <div class="author" *ngFor="let author of authors">
+          <img src="../../assets/img/test.jpg" [alt]="author.name">
+          <h2>{{ author.name }}</h2>
+          <p>{{ author.des }}</p>
         </div>
-    </main>
+      </div>
+    </main>     
     <section class="banner">
         <img src="../../assets/img/banner_despre.jpg" />
 </section>
