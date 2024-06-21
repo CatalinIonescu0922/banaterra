@@ -1,29 +1,26 @@
-   <app-nav-bar></app-nav-bar>
-   <header>
-        <h1>Authors</h1>
-        <div class="header-links">
-            <div class="dropdown">
-                <button onclick="toggleDropdown()" class="dropbtn">View all ▼</button>
-                <div id="dropdown" class="dropdown-content">
-                    <a href="#">Option 112</a>
-                    <a href="#">Option 2</a>
-                    <a href="#">Option 3</a>
-                </div>
-            </div>
-            <a class="dropbtn" href="/add-authors">Add Author</a>
+<app-nav-bar></app-nav-bar>
+<header>
+    <h1>Authors</h1>
+    <div class="header-links">
+        <div class="dropdown">
+            <button (click)="toggleViewAll()" class="dropbtn">
+                {{ isViewAll ? 'View Less' : 'View All' }}
+            </button>
         </div>
-    </header>
-    <main>
-      <div class="authors">
-        <div class="author" *ngFor="let author of authors">
-          <img src="../../assets/img/test.jpg" [alt]="author.name">
-          <h2>{{ author.name }}</h2>
-          <p>{{ author.des }}</p>
+        <a class="dropbtn" href="/add-authors">Add Author</a>
+    </div>
+</header>
+<main>
+    <div class="authors">
+        <div class="author" *ngFor="let author of (isViewAll ? authors : authors | slice:0:8)">
+            <img src="../../assets/img/test.jpg" [alt]="author.name">
+            <h2>{{ author.name }}</h2>
+            <p [innerHTML]="author.des"></p>
         </div>
-      </div>
-    </main>     
-    <section class="banner">
-        <img src="../../assets/img/banner_despre.jpg" />
+    </div>
+</main>
+
+<section class="banner">
+    <img src="../../assets/img/banner_despre.jpg" />
 </section>
 <app-footer></app-footer>
-
