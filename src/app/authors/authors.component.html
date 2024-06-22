@@ -1,26 +1,42 @@
 <app-nav-bar></app-nav-bar>
 <header>
-    <h1>Authors</h1>
-    <div class="header-links">
-        <div class="dropdown">
-            <button (click)="toggleViewAll()" class="dropbtn">
-                {{ isViewAll ? 'View Less' : 'View All' }}
-            </button>
-        </div>
-        <a class="dropbtn" href="/add-authors">Add Author</a>
+  <h1>Authors</h1>
+  <div class="header-links">
+    <div class="dropdown">
+      <button (click)="toggleViewAll()" class="dropbtn">
+        {{ isViewAll ? 'View Less' : 'View All' }}
+      </button>
     </div>
+    <a class="dropbtn" href="/add-authors">Add Author</a>
+  </div>
 </header>
+
 <main>
-    <div class="authors">
-        <div class="author" *ngFor="let author of (isViewAll ? authors : authors | slice:0:8)">
-            <img src="../../assets/img/test.jpg" [alt]="author.name">
-            <h2>{{ author.name }}</h2>
-            <p [innerHTML]="author.des"></p>
-        </div>
+  <div class="authors">
+    <div class="author" *ngFor="let author of getDisplayedAuthors()">
+      <img src="../../assets/img/test.jpg" [alt]="author.name">
+      <h2>{{ author.name }}</h2>
+      <p [innerHTML]="author.des"></p>
     </div>
+  </div>
 </main>
 
+<div class="pagination-container" *ngIf="isViewAll">
+    <div class="pagination" style="text-align: right;">
+      <a (click)="setFirstPage()" class="pagination-arrow"> << </a>
+      <a *ngIf="currentPage > 1" (click)="setPreviousPage()" class="pagination-arrow"> < </a>
+      <a *ngFor="let page of getVisiblePages(); let i = index"
+         [ngClass]="{ 'current-page': page === currentPage }"
+         (click)="setPage(page)" class="pagination-arrow">{{ page }}</a>
+      <a (click)="setNextPage()" class="pagination-arrow"> &gt; </a>
+      <a *ngIf="currentPage < getTotalPages()" (click)="setLastPage()" class="pagination-arrow"> >> </a>
+    </div>
+  </div>
+  
+  
+  
+
 <section class="banner">
-    <img src="../../assets/img/banner_despre.jpg" />
+  <img src="../../assets/img/banner_despre.jpg" />
 </section>
 <app-footer></app-footer>

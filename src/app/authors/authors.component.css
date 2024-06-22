@@ -111,3 +111,55 @@ main {
     margin: 10px 0;
     color: #666;
 }
+
+
+/* Modificari paginare autori */
+.pagination-container {
+    position: relative; /* Make the container positionable */
+    margin-top: 20px;  /* Add some margin from the content */
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: flex-end; /* Align links to the right */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .pagination a {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .pagination a.active {
+    background-color: #cccccc; /* Grey color for the active button */
+  }
+  
+  .pagination-arrow {
+    margin: 0 5px; /* Add some margin to the arrow icons */
+  }
+  
+  .pagination-link {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer; /* Add cursor pointer for hover effect */
+  }
+  
+  .pagination-link.active {
+    background-color: #cccccc; /* Apply same grey color for active state */
+  }
+  
+  .current-page {
+    background-color: grey;
+    color: white; /* Optional: adjust text color for better contrast */
+    padding: 5px 10px; /* Adjust padding as needed */
+    border-radius: 4px; /* Optional: add rounded corners */
+  }
+  
