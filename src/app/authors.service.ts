@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Author } from './models/author';  // Adjust the path as necessary
 import { HtmlEntities } from './models/HtmlEntities';
@@ -29,6 +30,22 @@ export class AuthorsService {
   );
 }
 
+// In authors.service.ts
+getAuthorDetails(authorId: string): Observable<Author> {
+    const url = `${this.baseUrl}/detail/${authorId}`;
+    console.log("Fetching details from URL:", url);
+    return this.http.get<Author>(url).pipe(
+        tap(author => console.log('Fetched author details:', author)),
+        catchError(error => {
+            console.error('Error fetching author details:', error);
+            return throwError(() => new Error('Error fetching author details'));
+        })
+    );
+}
+
+  
+
+
   private decodeHTML(html: string): string {
     const htmlEntities: HtmlEntities = {
         "&lt;": "<",
@@ -40,6 +57,5 @@ export class AuthorsService {
 
     return html.replace(/&lt;|&gt;|&amp;|&quot;|&#39;/g, (match) => htmlEntities[match] || match);
 }
-
 
 }

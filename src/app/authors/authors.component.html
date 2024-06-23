@@ -12,29 +12,40 @@
 </header>
 
 <main>
-  <div class="authors">
-    <div class="author" *ngFor="let author of getDisplayedAuthors()">
+  <div *ngIf="!showDetails" class="authors">
+    <div *ngFor="let author of getDisplayedAuthors()" (click)="log('Author clicked', author.name)" class="author">
+      <!-- Author details -->
       <img src="../../assets/img/test.jpg" [alt]="author.name">
       <h2>{{ author.name }}</h2>
       <p [innerHTML]="author.des"></p>
+      <!-- Removed the button -->
+    </div>
+  </div>
+
+  <div *ngIf="showDetails && selectedAuthor">
+    <button (click)="clearSelection()">Back to List</button>
+    <h2>{{ selectedAuthor.name }}</h2>
+    <p [innerHTML]="selectedAuthor.des"></p>
+    <p>Birth: {{ selectedAuthor.b_date | date }}</p>
+    <p>Death: {{ selectedAuthor.d_date | date }}</p>
+    <div *ngFor="let quote of selectedAuthor.quotes">
+      <p>{{ quote }}</p>
     </div>
   </div>
 </main>
 
-<div class="pagination-container" *ngIf="isViewAll">
-    <div class="pagination" style="text-align: right;">
-      <a (click)="setFirstPage()" class="pagination-arrow"> << </a>
-      <a *ngIf="currentPage > 1" (click)="setPreviousPage()" class="pagination-arrow"> < </a>
-      <a *ngFor="let page of getVisiblePages(); let i = index"
-         [ngClass]="{ 'current-page': page === currentPage }"
-         (click)="setPage(page)" class="pagination-arrow">{{ page }}</a>
-      <a (click)="setNextPage()" class="pagination-arrow"> &gt; </a>
-      <a *ngIf="currentPage < getTotalPages()" (click)="setLastPage()" class="pagination-arrow"> >> </a>
-    </div>
+<!-- Pagination controls, shown only when no author is selected -->
+<div class="pagination-container" *ngIf="isViewAll && !selectedAuthor">
+  <div class="pagination" style="text-align: right;">
+    <a (click)="setFirstPage()" class="pagination-arrow"> << </a>
+    <a *ngIf="currentPage > 1" (click)="setPreviousPage()" class="pagination-arrow"> < </a>
+    <a *ngFor="let page of getVisiblePages(); let i = index"
+       [ngClass]="{ 'current-page': page === currentPage }"
+       (click)="setPage(page)" class="pagination-arrow">{{ page }}</a>
+    <a (click)="setNextPage()" class="pagination-arrow"> &gt; </a>
+    <a *ngIf="currentPage < getTotalPages()" (click)="setLastPage()" class="pagination-arrow"> >> </a>
   </div>
-  
-  
-  
+</div>
 
 <section class="banner">
   <img src="../../assets/img/banner_despre.jpg" />

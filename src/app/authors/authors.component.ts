@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { AuthorsService } from '../authors.service';
@@ -19,8 +19,11 @@ export class AuthorsComponent implements OnInit {
   pageSize = 8; // Number of authors displayed per page
   currentPage = 1;
   isViewAll: boolean = false;
+  selectedAuthor: Author | null = null;
+  showDetails = false;
 
   constructor(
+    private cd: ChangeDetectorRef,
     private authorsService: AuthorsService,
     private route: ActivatedRoute
   ) {}
@@ -29,6 +32,10 @@ export class AuthorsComponent implements OnInit {
     this.authorsService.getAuthors().subscribe((data) => {
       this.authors = data;
     });
+  }
+
+  updateView() {
+    this.cd.detectChanges(); // Manually trigger change detection
   }
 
   toggleViewAll(): void {
@@ -55,6 +62,37 @@ export class AuthorsComponent implements OnInit {
   setPage(pageNumber: number) {
     this.currentPage = Math.min(Math.max(pageNumber, 1), this.getTotalPages()); // Ensures page number is within valid range
   }
+
+  // In authors.component.ts
+  selectAuthor(authorId: number): void {
+    console.log("Clicked author ID:", authorId);
+    this.authorsService.getAuthorDetails(authorId.toString()).subscribe({
+      next: (details) => {
+        console.log("Details fetched", details);
+        this.selectedAuthor = details;
+        this.showDetails = true;
+      },
+      error: (error) => {
+        console.error("Error fetching author details:", error);
+      }
+    });
+  }
+  
+  
+  log(message: string, data: any): void {
+    console.log(message, data);
+    this.cd.detectChanges();
+  }
+  
+  goBackToList(): void {
+    this.showDetails = false;  // Hide the details and show the list again
+    this.selectedAuthor = null;
+  }
+  // In authors.component.ts
+
+clearSelection(): void {
+  this.selectedAuthor = null;  // Clear the current selection
+}
 
   // New methods for previous and next pages
 
