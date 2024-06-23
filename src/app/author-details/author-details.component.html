@@ -1,0 +1,16 @@
+<app-nav-bar></app-nav-bar>
+<div class="author-details" *ngIf="author">
+  <div class="author-header">
+    <h2>{{ author.name }}</h2>
+    <div [innerHtml]="sanitizedDescription"></div>
+    <p><strong>Born:</strong> {{ author.b_date | date:'longDate' }}</p>
+    <p><strong>Died:</strong> {{ author.d_date | date:'longDate' }}</p>
+  </div>
+  <div class="author-quotes" *ngIf="author.quotes && author.quotes.length > 0">
+    <h3>Quotes</h3>
+    <ul>
+      <li *ngFor="let quote of author.quotes">{{ quote }}</li>
+    </ul>
+  </div>
+</div>
+<app-footer></app-footer>

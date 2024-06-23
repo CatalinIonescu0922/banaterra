@@ -13,7 +13,7 @@
 
 <main>
   <div *ngIf="!showDetails" class="authors">
-    <div *ngFor="let author of getDisplayedAuthors()" (click)="log('Author clicked', author.name)" class="author">
+    <div *ngFor="let author of getDisplayedAuthors()" (click)="selectAuthor(author.id)" class="author">
       <!-- Author details -->
       <img src="../../assets/img/test.jpg" [alt]="author.name">
       <h2>{{ author.name }}</h2>
