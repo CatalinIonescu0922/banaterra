@@ -1,9 +1,9 @@
-import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { AuthorsService } from '../authors.service';
+import { Router } from '@angular/router';
 import { FooterComponent } from '../footer/footer.component';
-import { ActivatedRoute } from '@angular/router';
 import { Author } from '../models/author'; // Adjust the path as necessary
 
 @Component({
@@ -12,7 +12,6 @@ import { Author } from '../models/author'; // Adjust the path as necessary
   imports: [NavBarComponent, FooterComponent, CommonModule],
   templateUrl: './authors.component.html',
   styleUrls: ['./authors.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AuthorsComponent implements OnInit {
   authors: Author[] = [];
@@ -22,20 +21,12 @@ export class AuthorsComponent implements OnInit {
   selectedAuthor: Author | null = null;
   showDetails = false;
 
-  constructor(
-    private cd: ChangeDetectorRef,
-    private authorsService: AuthorsService,
-    private route: ActivatedRoute
-  ) {}
+  constructor(private authorsService: AuthorsService, private router: Router) {}
 
   ngOnInit(): void {
     this.authorsService.getAuthors().subscribe((data) => {
       this.authors = data;
     });
-  }
-
-  updateView() {
-    this.cd.detectChanges(); // Manually trigger change detection
   }
 
   toggleViewAll(): void {
@@ -63,38 +54,19 @@ export class AuthorsComponent implements OnInit {
     this.currentPage = Math.min(Math.max(pageNumber, 1), this.getTotalPages()); // Ensures page number is within valid range
   }
 
-  // In authors.component.ts
   selectAuthor(authorId: number): void {
-    console.log("Clicked author ID:", authorId);
-    this.authorsService.getAuthorDetails(authorId.toString()).subscribe({
-      next: (details) => {
-        console.log("Details fetched", details);
-        this.selectedAuthor = details;
-        this.showDetails = true;
-      },
-      error: (error) => {
-        console.error("Error fetching author details:", error);
-      }
-    });
+    console.log('Click on author with this id ', authorId);
+    this.router.navigate(['/authors/details', authorId]);
   }
-  
-  
-  log(message: string, data: any): void {
-    console.log(message, data);
-    this.cd.detectChanges();
-  }
-  
+
   goBackToList(): void {
-    this.showDetails = false;  // Hide the details and show the list again
+    this.showDetails = false; // Hide the details and show the list again
     this.selectedAuthor = null;
   }
-  // In authors.component.ts
 
-clearSelection(): void {
-  this.selectedAuthor = null;  // Clear the current selection
-}
-
-  // New methods for previous and next pages
+  clearSelection(): void {
+    this.selectedAuthor = null; // Clear the current selection
+  }
 
   getPreviousPages(): number[] {
     const totalPages = this.getTotalPages();
@@ -116,17 +88,14 @@ clearSelection(): void {
     return Array.from({ length: nextPages }, (_, i) => startPage + i);
   }
 
-  // Fix for ">>" button to always navigate to last page
   setLastPage(): void {
     this.currentPage = this.getTotalPages();
   }
 
-  // Function for "<" button (decrease current page)
   setPreviousPage(): void {
     this.setPage(Math.max(this.currentPage - 1, 1)); // Ensures page number doesn't go below 1
   }
 
-  // Function for ">" button (increase current page)
   setNextPage(): void {
     this.setPage(Math.min(this.currentPage + 1, this.getTotalPages())); // Ensures page number doesn't go above total pages
   }
@@ -134,23 +103,19 @@ clearSelection(): void {
   getVisiblePages(): number[] {
     const totalPages = this.getTotalPages();
     const visiblePages = Math.min(totalPages, 5); // Assuming you want 5 visible pages
-  
+
     // Logic to determine visible pages based on current page and total pages
-    let startPage = Math.max(1, Math.min(this.currentPage, totalPages - visiblePages + 1));
+    let startPage = Math.max(
+      1,
+      Math.min(this.currentPage, totalPages - visiblePages + 1)
+    );
     const endPage = Math.min(totalPages, startPage + visiblePages - 1);
-  
+
     // Create an array of page numbers for visible pages
     return Array.from({ length: visiblePages }, (_, i) => startPage + i);
   }
 
-  // Function for "<" button (decrease current page)
-  // Existing function in authors.component.ts
-
-// Function for "<" button (decrease current page)
-
-// New function for "<<" button
-setFirstPage(): void {
-  this.setPage(1); // Directly set current page to 1
+  setFirstPage(): void {
+    this.setPage(1); // Directly set current page to 1
+  }
 }
-
-}  

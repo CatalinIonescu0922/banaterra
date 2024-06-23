@@ -7,10 +7,12 @@ import { DonateComponent } from './donate/donate.component';
 import { MMComponent } from './mm/mm.component';
 import { LoginComponent } from './login/login.component';
 import { AddAuthorsComponent } from './add-authors/add-authors.component';
+import { AuthorDetailsComponent } from './author-details/author-details.component';
 export const routes: Routes = [
     {path : "" , component : HomeComponentComponent},
     {path : "topics" ,component: TopicsComponent},
     {path : "authors" , component : AuthorsComponent},
+    {path : "authors" , children :[{path : "details/:id", component : AuthorDetailsComponent}]},
     {path : "learn", component : LearnComponent},
     {path : "donate" , component : DonateComponent},
     {path : "mm" , component : MMComponent},
