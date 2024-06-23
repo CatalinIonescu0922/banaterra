@@ -1,0 +1,89 @@
+
+
+header {
+    color: black;
+    padding: 1em 0;
+    text-align: left;
+    margin-left: 40px;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+}
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+h2 {
+    color: #333;
+}
+
+.donation-info, .donation-methods, .thank-you, .join-us {
+    background: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.donation-methods ul {
+    list-style: none;
+    padding: 0;
+}
+
+.donation-methods li {
+    margin: 10px 0;
+}
+
+.association-info {
+    background-color: #d8e8ff;
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.association-info p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.donate-button {
+    display: inline-block;
+    background-color: #006400;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.donate-button:hover {
+    background-color: #004d00;
+}
+
+.donate-button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.thank-you p, .join-us p {
+    margin: 10px 0;
+}
+
+a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+

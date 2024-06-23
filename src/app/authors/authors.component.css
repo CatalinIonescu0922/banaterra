@@ -1,0 +1,172 @@
+
+
+header {
+    color: #333;
+    padding: 1em 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.header-links {
+    display: flex;
+    align-items: center;
+}
+
+.header-links a {
+    margin-left: 1em;
+    color: #333;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: white;
+    color: black;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    margin-left: 1em;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.show {
+    display: block;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+}
+
+main {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.authors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+}
+
+.author {
+    background: #fff;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 22%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.author img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.author h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.author p {
+    margin: 10px 0;
+    color: #666;
+}
+
+
+/* Modificari paginare autori */
+.pagination-container {
+    position: relative; /* Make the container positionable */
+    margin-top: 20px;  /* Add some margin from the content */
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: flex-end; /* Align links to the right */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .pagination a {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .pagination a.active {
+    background-color: #cccccc; /* Grey color for the active button */
+  }
+  
+  .pagination-arrow {
+    margin: 0 5px; /* Add some margin to the arrow icons */
+  }
+  
+  .pagination-link {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer; /* Add cursor pointer for hover effect */
+  }
+  
+  .pagination-link.active {
+    background-color: #cccccc; /* Apply same grey color for active state */
+  }
+  
+  .current-page {
+    background-color: grey;
+    color: white; /* Optional: adjust text color for better contrast */
+    padding: 5px 10px; /* Adjust padding as needed */
+    border-radius: 4px; /* Optional: add rounded corners */
+  }
+  
+  .author {
+    cursor: pointer;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 5px;
+  }
+  

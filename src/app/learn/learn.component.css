@@ -1,0 +1,100 @@
+
+.banner img {
+    width: 100%;
+    height: auto;
+}
+
+
+header {
+    color: black;
+    padding: 10px 0;
+    text-align: left;
+    position: relative;
+    margin-right:250px;
+    margin-left: 250px;
+}
+
+header .login {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+header .login a {
+    color: black;
+    text-decoration: none;
+}
+
+
+.banner{
+    width: 100%;
+    height: auto;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.scris {
+    font-size: 40px;
+    color: #333;
+    margin-left: 20px;
+    margin-right: 100px;
+    flex: 1;
+    text-align: left;
+    font-weight: bold;
+}
+
+.scris1 {
+    font-size: 20px;
+    color: #333;
+    margin-left: 20px;
+    margin-right: 100px;
+    flex: 1;
+    text-align: left;
+}
+
+.column {
+    flex: 1;
+    padding: 10px;
+}
+
+.language-select {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.language-select select, .go-button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.language-select select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: white;
+}
+
+.go-button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.go-button:hover {
+    background-color: #45a049;
+}

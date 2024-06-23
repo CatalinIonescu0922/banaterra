@@ -1,0 +1,94 @@
+/* Basic reset and full-screen flex container */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Modern font */
+}
+
+.login-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    /* background: linear-gradient(135deg, #667eea, #764ba2); Trendy gradient background */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 35%;
+}
+
+/* Styling for the login container */
+.login-container {
+    width: 100%;
+    max-width: 350px;
+    padding: 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Floating label pattern for form inputs */
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem; /* Increased margin for clarity */
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    padding-top: 18px; /* Added space for label */
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background: none;
+    position: relative;
+    z-index: 2;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus,
+.input-group input:not(:placeholder-shown) {
+    border-color: #667eea; /* Matching the gradient */
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    transform: translateY(-150%); /* Adjusted for better visual effect */
+    font-size: 12px;
+    color: #667eea;
+}
+
+.input-group label {
+    position: absolute;
+    top: 18px; /* Adjust to match input padding */
+    left: 10px;
+    z-index: 1;
+    transition: all 0.3s ease;
+    color: #999;
+    pointer-events: none; /* Ensures click events pass through to input */
+}
+
+/* Button styling for sign in */
+button {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #e0a96d; /* Adjusted to match the color theme from the navigation bar */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #c98a4e; /* Darker shade for hover effect */
+}
+
+/* Responsive typography */
+h2 {
+    margin-bottom: 1.5rem; /* Slightly larger margin for header */
+    color: #333;
+}

@@ -3,12 +3,12 @@ import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { FooterComponent } from '../footer/footer.component';
 
 @Component({
-  selector: 'app-learn',
+  selector: 'app-add-authors',
   standalone: true,
   imports: [NavBarComponent,FooterComponent],
-  templateUrl: './learn.component.html',
-  styleUrl: './learn.component.css'
+  templateUrl: './add-authors.component.html',
+  styleUrl: './add-authors.component.css'
 })
-export class LearnComponent {
+export class AddAuthorsComponent {
 
 }

@@ -1,28 +1,28 @@
 <section class="banner">
-  <img [src]="imagePath" />
-</section>
-
-<br>
-<<div class="button-container">
-  <div *ngFor="let buttonRow of buttonLabels; let i = index">
-    <div class="button-column">
-      <button *ngFor="let btnLabel of buttonRow; let j = index" (click)="selectQuote(i*5+j)">
-        {{ btnLabel }}
-      </button>
+    <img [src]="imagePath" />
+  </section>
+  
+  <br>
+  <<div class="button-container">
+    <div *ngFor="let buttonRow of buttonLabels; let i = index">
+      <div class="button-column">
+        <button *ngFor="let btnLabel of buttonRow; let j = index" (click)="selectQuote(i*5+j)">
+          {{ btnLabel }}
+        </button>
+      </div>
     </div>
   </div>
-</div>
-
-<br>
-
-<!-- Single Quote Display -->
-<div *ngIf="currentQuote">
-  <app-quote [quote]="currentQuote"></app-quote>
-</div>
-
-<!-- Multiple Quotes Display -->
-<div *ngIf="currentQuotes.length > 0">
-  <div *ngFor="let quote of currentQuotes">
-    <app-quote [quote]="quote"></app-quote>
+  
+  <br>
+  
+  <!-- Single Quote Display -->
+  <div *ngIf="currentQuote">
+    <app-quote [quote]="currentQuote"></app-quote>
   </div>
-</div>
+  
+  <!-- Multiple Quotes Display -->
+  <div *ngIf="currentQuotes.length > 0">
+    <div *ngFor="let quote of currentQuotes">
+      <app-quote [quote]="quote"></app-quote>
+    </div>
+  </div>
