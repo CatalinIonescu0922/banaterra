@@ -25,14 +25,15 @@ export class AuthorDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => {
-      const authorId = params['id'];
-      this.fetchAuthorDetails(authorId);
+    this.route.params.subscribe(params => {
+      const authorId = params['authorId'];
+      const languageId = params['languageId']; // Retrieve the language ID from the route
+      this.fetchAuthorDetails(authorId, languageId);
     });
   }
 
-  fetchAuthorDetails(authorId: string): void {
-    this.authorsService.getAuthorDetails(authorId).subscribe({
+  fetchAuthorDetails(authorId: string, languageId: string): void {
+    this.authorsService.getAuthorDetails(authorId, languageId).subscribe({
       next: (details) => {
         this.author = details;
         if (this.author?.des) {
@@ -41,9 +42,10 @@ export class AuthorDetailsComponent implements OnInit {
       },
       error: (error) => {
         console.error('Error fetching author details:', error);
-      },
+      }
     });
   }
+
 
   sanitizeDescription(description: string): SafeHtml {
     // Remove specific tags like <p> and <strong>

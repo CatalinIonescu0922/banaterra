@@ -1,7 +1,7 @@
 export enum Language {
   Romana = 'romana',
-  English = 'english'
-  // add other languages as needed
+  English = 'english',
+  Magyar = 'magyar'  // Adăugarea limbii maghiare
 }
 
 import { Injectable } from '@angular/core';
@@ -22,8 +22,11 @@ export class LanguageService {
     [Language.English]: {
       topics: ['Battle', 'Love', 'Friendship', 'Soul', 'Faith', 'Happiness', 'Remembrance', 'Time', 'Self-Knowledge', 'Individuality', 'Health', 'Life', 'Understanding Human Nature', 'Wisdom', 'Loneliness', 'Everyday Life', 'Decision', 'Freedom', 'Success'],
       header: 'Quotes'
+    },
+    [Language.Magyar]: {
+      topics: ['Csata', 'Szeretet', 'Barátság', 'Lélek', 'Hit', 'Boldogság', 'Emlékezés', 'Idő', 'Önismeret', 'Individualitás', 'Egészség', 'Élet', 'Az emberi természet megértése', 'Bölcsesség', 'Magány', 'Mindennapi élet', 'Döntés', 'Szabadság', 'Siker'],
+      header: 'Idézetek'
     }
-    // add other languages as needed
   };
 
   changeLanguage(language: Language): void {
@@ -33,5 +36,6 @@ export class LanguageService {
   getLabels(language: Language): { topics: string[]; header: string } {
     return this.buttonLabels[language];
   }
+  
 }
 

@@ -5,6 +5,7 @@ import { AuthorsService } from '../authors.service';
 import { Router } from '@angular/router';
 import { FooterComponent } from '../footer/footer.component';
 import { Author } from '../models/author'; // Adjust the path as necessary
+import { LanguageService } from '../language.service';
 
 @Component({
   selector: 'app-authors',
@@ -20,8 +21,22 @@ export class AuthorsComponent implements OnInit {
   isViewAll: boolean = false;
   selectedAuthor: Author | null = null;
   showDetails = false;
+  selectedLanguageId = 77;  // default language
 
-  constructor(private authorsService: AuthorsService, private router: Router) {}
+
+  constructor(private authorsService: AuthorsService, private router: Router,private languageService: LanguageService) {}
+  getLanguageId(langCode: string): String {
+    switch (langCode) {
+        case 'romana':
+            return 'ro';  // ID for Romanian
+        case 'english':
+            return 'en';  // ID for English
+        case 'magyar':
+            return 'mag';  // ID for Hungarian
+        default:
+            return 'ro';  // Default to English if something goes wrong
+    }
+}
 
   ngOnInit(): void {
     this.authorsService.getAuthors().subscribe((data) => {
@@ -55,8 +70,17 @@ export class AuthorsComponent implements OnInit {
   }
 
   selectAuthor(authorId: number): void {
-    console.log('Click on author with this id ', authorId);
-    this.router.navigate(['/authors/details', authorId]);
+    console.log('Click on author with this id', authorId);
+
+    // Fetch the current language code from LanguageService
+    this.languageService.currentLanguage.subscribe(langCode => {
+      // Convert language code to ID
+      const languageId = this.getLanguageId(langCode);
+
+      // Navigate to the author details page
+      this.router.navigate(['/authors/details', authorId, languageId]);
+    
+    });
   }
 
   goBackToList(): void {

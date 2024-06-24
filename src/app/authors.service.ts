@@ -30,9 +30,8 @@ export class AuthorsService {
   );
 }
 
-// In authors.service.ts
-getAuthorDetails(authorId: string): Observable<Author> {
-    const url = `${this.baseUrl}/detail/${authorId}`;
+getAuthorDetails(authorId: string, languageId: String): Observable<Author> {
+    const url = '${this.baseUrl}/detail/${authorId}/${languageId}';  // Include languageId în URL
     console.log("Fetching details from URL:", url);
     return this.http.get<Author>(url).pipe(
         tap(author => console.log('Fetched author details:', author)),
@@ -42,8 +41,22 @@ getAuthorDetails(authorId: string): Observable<Author> {
         })
     );
 }
+/*
+  // În authors.service.ts, actualizează metoda care face interogarea pentru a include limba
+// În authors.service.ts
+getAuthorDetails(authorId: number, languageId: String): Observable<Author> {
+    const url = `${this.baseUrl}/detail/${authorId}/${languageId}`;  // Include languageId în URL
+    console.log("Fetching details from URL:", url);
+    return this.http.get<Author>(url).pipe(
+        tap(author => console.log('Fetched author details:', author)),
+        catchError(error => {
+            console.error('Error fetching author details:', error);
+            return throwError(() => new Error('Error fetching author details'));
+        })
+    );
+  }
+*/
 
-  
 
 
   private decodeHTML(html: string): string {
