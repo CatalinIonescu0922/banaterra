@@ -56,3 +56,26 @@
 .author-quotes li:not(:last-child) {
   margin-bottom: 15px;
 }
+
+.language-buttons-container {
+  display: flex;
+  justify-content: center;  /* Center buttons horizontally */
+  align-items: center;      /* Center buttons vertically */
+  padding: 20px;            /* Space around buttons */
+  flex-wrap: wrap;          /* Allows buttons to wrap onto the next line on smaller screens */
+}
+
+.language-button {
+  background-color: #f28b82; /* Coral-like color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;               /* Small space around each button */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.language-button:hover {
+  background-color: #f4a2a0; /* Lighter coral color on hover */
+}

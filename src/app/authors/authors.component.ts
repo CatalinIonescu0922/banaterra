@@ -83,6 +83,7 @@ export class AuthorsComponent implements OnInit {
     });
   }
 
+  
   goBackToList(): void {
     this.showDetails = false; // Hide the details and show the list again
     this.selectedAuthor = null;

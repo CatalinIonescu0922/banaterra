@@ -15,8 +15,13 @@ import { FooterComponent } from "../footer/footer.component";
     imports: [CommonModule, NavBarComponent, FooterComponent]
 })
 export class AuthorDetailsComponent implements OnInit {
-  author!: Author ;
+  authorId: string = '';  // Store authorId at the component level
+  author!: Author;
   sanitizedDescription: SafeHtml | null = null;
+  sanitizedQuotes: SafeHtml[] = [];
+  quoteCounts: any[] = [];
+  currentLanguageCode: string = 'ro'; // Default to English
+
 
   constructor(
     private route: ActivatedRoute,
@@ -26,19 +31,22 @@ export class AuthorDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      const authorId = params['authorId'];
-      const languageId = params['languageId']; // Retrieve the language ID from the route
-      this.fetchAuthorDetails(authorId, languageId);
+      this.authorId = params['authorId'];  // Capture and store authorId from route
+      this.currentLanguageCode = params['languageId']; // Retrieve the language ID from the route
+      this.fetchAuthorDetails(this.authorId, this.currentLanguageCode);
+      this.fetchQuoteCounts(this.authorId);
     });
   }
 
   fetchAuthorDetails(authorId: string, languageId: string): void {
+    this.currentLanguageCode = languageId;
     this.authorsService.getAuthorDetails(authorId, languageId).subscribe({
       next: (details) => {
         this.author = details;
         if (this.author?.des) {
-          this.sanitizedDescription = this.sanitizeDescription(this.author.des);
+          this.sanitizedDescription = this.sanitizeContent(this.author.des);
         }
+        this.sanitizedQuotes = this.author?.quotes.map(quote => this.sanitizeContent(quote)) || [];
       },
       error: (error) => {
         console.error('Error fetching author details:', error);
@@ -46,10 +54,41 @@ export class AuthorDetailsComponent implements OnInit {
     });
   }
 
-
-  sanitizeDescription(description: string): SafeHtml {
-    // Remove specific tags like <p> and <strong>
-    const cleanedDescription = description.replace(/<\/?(p|strong)>/g, '');
-    return this.sanitizer.bypassSecurityTrustHtml(cleanedDescription);
+  fetchQuoteCounts(authorId: string): void {
+    this.authorsService.getQuoteCountsByLanguage(authorId).subscribe({
+      next: (counts) => {
+        this.quoteCounts = counts;
+      },
+      error: (error) => {
+        console.error('Error fetching quote counts:', error);
+      }
+    });
   }
+
+  mapLanguageToCode(language: string): string {
+    switch (language) {
+      case 'English': return 'en';
+      case 'Hungarian': return 'mag';
+      case 'Romanian': return 'ro';
+      default: return 'ro'; // default to English if unknown
+    }
+  }
+  getQuotesHeading(): string {
+    switch (this.currentLanguageCode) {
+      case 'en': return 'Quotes';
+      case 'ro': return 'Citate';
+      case 'mag': return 'Idézetek'; // Add the Hungarian translation for "Quotes"
+      default: return 'Quotes';
+    }
+  }
+
+  sanitizeContent(content: string): SafeHtml {
+    const cleanedContent = content.replace(/<\/?(p|strong|div|span)>/g, '');
+    return this.sanitizer.bypassSecurityTrustHtml(cleanedContent);
+  }
+
+  
+
 }
+
+

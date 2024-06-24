@@ -6,10 +6,16 @@
     <p><strong>Born:</strong> {{ author.b_date | date:'longDate' }}</p>
     <p><strong>Died:</strong> {{ author.d_date | date:'longDate' }}</p>
   </div>
-  <div class="author-quotes" *ngIf="author.quotes && author.quotes.length > 0">
-    <h3>Quotes</h3>
+  <div *ngIf="quoteCounts.length" class="language-buttons-container">
+    <button class="language-button" *ngFor="let count of quoteCounts" (click)="fetchAuthorDetails(authorId, mapLanguageToCode(count.language))">
+      {{ count.language }} ({{ count.count }})
+    </button>
+  </div>
+  
+  <div class="author-quotes" *ngIf="sanitizedQuotes.length > 0">
+    <h3>{{ getQuotesHeading() }}</h3>
     <ul>
-      <li *ngFor="let quote of author.quotes">{{ quote }}</li>
+      <li *ngFor="let quote of sanitizedQuotes" [innerHtml]="quote"></li>
     </ul>
   </div>
 </div>

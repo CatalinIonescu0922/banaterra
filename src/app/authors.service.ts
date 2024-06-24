@@ -30,6 +30,10 @@ export class AuthorsService {
   );
 }
 
+getQuoteCountsByLanguage(authorId: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/${authorId}/quotes/count`);
+  }
+  
 getAuthorDetails(authorId: string, languageId: String): Observable<Author> {
     const url = `${this.baseUrl}/detail/${authorId}/${languageId}`;  // Include languageId în URL
     console.log("Fetching details from URL:", url);
