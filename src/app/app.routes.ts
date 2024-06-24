@@ -12,7 +12,7 @@ export const routes: Routes = [
     {path : "" , component : HomeComponentComponent},
     {path : "topics" ,component: TopicsComponent},
     {path : "authors" , component : AuthorsComponent},
-    {path : "authors" , children :[{path : "authors/details/:authorId/:languageId", component : AuthorDetailsComponent}]},
+    {path : "authors" , children :[{path : "details/:authorId/:languageId", component : AuthorDetailsComponent}]},
     {path : "learn", component : LearnComponent},
     {path : "donate" , component : DonateComponent},
     {path : "mm" , component : MMComponent},
