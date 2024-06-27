@@ -22,6 +22,7 @@ export class AuthorsComponent implements OnInit {
   selectedAuthor: Author | null = null;
   showDetails = false;
   selectedLanguageId = 77;  // default language
+  img_w="250px";
 
 
   constructor(private authorsService: AuthorsService, private router: Router,private languageService: LanguageService) {}
@@ -53,7 +54,9 @@ export class AuthorsComponent implements OnInit {
   getDisplayedAuthors(): Author[] {
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;
-    return this.authors.slice(startIndex, endIndex);
+    let slicedAuthors = this.authors.slice(startIndex, endIndex);
+    console.log(slicedAuthors.map(author => author.image_path));
+    return slicedAuthors;
   }
 
   getPageNumbers(): number[] {

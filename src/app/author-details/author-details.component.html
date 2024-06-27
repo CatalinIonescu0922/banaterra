@@ -2,6 +2,7 @@
 <div class="author-details" *ngIf="author">
   <div class="author-header">
     <h2>{{ author.name }}</h2>
+    <img  [src]="author.image_path" alt="nu merge" [style.width]="img_w" [style.height]="'auto'">
     <div [innerHtml]="sanitizedDescription"></div>
     <p><strong>Born:</strong> {{ author.b_date | date:'longDate' }}</p>
     <p><strong>Died:</strong> {{ author.d_date | date:'longDate' }}</p>

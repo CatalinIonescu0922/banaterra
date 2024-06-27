@@ -21,7 +21,7 @@ export class AuthorDetailsComponent implements OnInit {
   sanitizedQuotes: SafeHtml[] = [];
   quoteCounts: any[] = [];
   currentLanguageCode: string = 'ro'; // Default to English
-
+  img_w="250px";
 
   constructor(
     private route: ActivatedRoute,

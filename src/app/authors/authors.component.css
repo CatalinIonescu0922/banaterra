@@ -68,11 +68,15 @@ main {
 .author img {
   width: 100%;
   height: auto;
+  margin-top: 0.25rem;
+  border-radius: 7px; 
+  margin-left: 3.25rem;
 }
 
 .author h2 {
   font-size: 1.5em;
   margin: 10px;
+  text-align: center;
 }
 
 .author div {

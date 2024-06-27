@@ -7,14 +7,14 @@
         {{ isViewAll ? 'View Less' : 'View All' }}
       </button>
     </div>
-    <a class="dropbtn" href="/add-authors">Add Author</a>
+    <a class="dropbtn" href="/add-authors" style="text-decoration: none;">Add Author</a>
   </div>
 </header>
 
 <main>
   <div class="authors">
     <div *ngFor="let author of getDisplayedAuthors()" (click)="selectAuthor(author.id)" class="author">
-      <img src="../../assets/img/test.jpg" [alt]="author.name">
+      <img [src]="author.image_path"  [alt]="author.name" [style.width]="img_w" [style.height]="'auto'">
       <h2>{{ author.name }}</h2>
       <div [innerHtml]="author.des"></div> <!-- Use a div to properly handle innerHTML -->
     </div>

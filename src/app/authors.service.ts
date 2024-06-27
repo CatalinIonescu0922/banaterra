@@ -9,18 +9,15 @@ import { HtmlEntities } from './models/HtmlEntities';
 
 
 @Injectable({
-  providedIn: 'root',
+ providedIn: 'root',
 })
 export class AuthorsService {
-  private baseUrl = 'http://localhost:8000/authors';
+ private baseUrl = 'http://localhost:8000/authors';
 
-  constructor(private http: HttpClient, private sanitizer: DomSanitizer) {}
+ constructor(private http: HttpClient, private sanitizer: DomSanitizer) {}
 
-  getAuthorByTagId(tagId: string): Observable<Author> {
-    return this.http.get<Author>(`${this.baseUrl}/${tagId}`);
-  }
 
-  getAuthors(): Observable<Author[]> {
+ getAuthors(): Observable<Author[]> {
   return this.http.get<Author[]>(this.baseUrl).pipe(
       map(authors => authors.map(author => {
           author.des = decodeURIComponent(author.des);
