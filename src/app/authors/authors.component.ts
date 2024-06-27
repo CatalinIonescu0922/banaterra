@@ -36,7 +36,7 @@ export class AuthorsComponent implements OnInit {
         default:
             return 'ro';  // Default to English if something goes wrong
     }
-}
+  }
 
   ngOnInit(): void {
     this.authorsService.getAuthors().subscribe((data) => {
