@@ -30,6 +30,8 @@ nav {
   border: none;
   text-align: center;
   transition-duration: 0.2s;
+  color:white;
+
 }
 .btn a{
   text-decoration: none;
@@ -77,7 +79,7 @@ nav .menu {
   appearance: none; /* remove default appearance set by the browser */
   outline: none; /* remove the outline shown on focus */
   cursor: pointer; /* change the mouse cursor icon */
-  color: black; /* text color */
+  color: white; /* text color */
   background-color: #d9534f;
   border: none;
   border-radius: 5px; /* round the border corners */
