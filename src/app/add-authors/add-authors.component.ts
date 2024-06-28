@@ -8,16 +8,15 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-add-authors',
   standalone: true,
-  imports: [NavBarComponent,FooterComponent,CommonModule, ReactiveFormsModule, HttpClientModule],
+  imports: [NavBarComponent, FooterComponent, CommonModule, ReactiveFormsModule, HttpClientModule],
   templateUrl: './add-authors.component.html',
-  styleUrl: './add-authors.component.css'
+  styleUrls: ['./add-authors.component.css']
 })
 export class AddAuthorsComponent {
   authorForm: FormGroup;
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.authorForm = this.fb.group({
-      //type: ['author', Validators.required],
       name: ['', Validators.required],
       birthDate: ['', Validators.required],
       deathDate: [''],
@@ -36,7 +35,7 @@ export class AddAuthorsComponent {
         }
       }
 
-      this.http.post('http://localhost:3000/api/authors', formData)
+      this.http.post('http://localhost:8000/api/authors', formData)
         .subscribe(response => {
           console.log('Author successfully added', response);
         }, error => {
