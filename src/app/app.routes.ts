@@ -8,6 +8,11 @@ import { MMComponent } from './mm/mm.component';
 import { LoginComponent } from './login/login.component';
 import { AddAuthorsComponent } from './add-authors/add-authors.component';
 import { AuthorDetailsComponent } from './author-details/author-details.component';
+import { CountryComponent } from './country/country.component';
+import { PeopleComponent } from './people/people.component';
+import { AnimalsComponent } from './animals/animals.component';
+import { PlantsComponent } from './plants/plants.component';
+import { BibleComponent } from './bible/bible.component';
 export const routes: Routes = [
     {path : "" , component : HomeComponentComponent},
     {path : "topics" ,component: TopicsComponent},
@@ -16,6 +21,12 @@ export const routes: Routes = [
     {path : "learn", component : LearnComponent},
     {path : "donate" , component : DonateComponent},
     {path : "mm" , component : MMComponent},
+    {path : "mm" , children :[{path : "country", component : CountryComponent}]},
+    {path : "mm" , children :[{path : "people", component : PeopleComponent}]},
+    {path : "mm" , children :[{path : "animals", component : AnimalsComponent}]},
+    {path : "mm" , children :[{path : "plants", component : PlantsComponent}]},
+    {path : "mm" , children :[{path : "bible", component : BibleComponent}]},
     {path : "login" , component : LoginComponent},
     {path : "add-authors",component : AddAuthorsComponent}
+    
 ];

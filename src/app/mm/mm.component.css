@@ -123,3 +123,36 @@ button.toggle-button:hover {
   background-color:#d9534f;
 }
 
+
+main {
+  padding: 20px;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 270px));
+  gap: 20px;
+}
+
+.game-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.game-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.game-card h2 {
+  margin-top: 10px;
+  font-size: 1.2em;
+  color: #00796b;
+}
+
+
+

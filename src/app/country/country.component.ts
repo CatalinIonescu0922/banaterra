@@ -4,20 +4,15 @@ import { FooterComponent } from '../footer/footer.component';
 import { MM_country } from '../models/mm';
 import { CountryService } from '../mm.service';
 import { CommonModule } from '@angular/common';
-import { CountryComponent } from '../country/country.component';
-import { PeopleComponent } from '../people/people.component';
-import { AnimalsComponent } from '../animals/animals.component';
-import { PlantsComponent } from '../plants/plants.component';
-
 
 @Component({
-  selector: 'app-mm',
+  selector: 'app-country',
   standalone: true,
-  imports: [NavBarComponent, FooterComponent, CommonModule,CountryComponent,PeopleComponent,AnimalsComponent,PlantsComponent],
-  templateUrl: './mm.component.html',
-  styleUrls: ['./mm.component.css']
+  imports: [NavBarComponent, FooterComponent, CommonModule],
+  templateUrl: './country.component.html',
+  styleUrls: ['./country.component.css']
 })
-export class MMComponent implements OnInit {
+export class CountryComponent implements OnInit {
   countries: MM_country[] = [];
   displayedCountries: MM_country[] = [];
   showAll: boolean = false;

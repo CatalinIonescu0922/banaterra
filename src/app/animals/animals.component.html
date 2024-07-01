@@ -22,34 +22,37 @@
     <p>43 years, 7 months, 12 days, 14 hours, 46 minutes and 41 seconds</p>
     <h2>Timpul estimat de sosire la următorul destin</h2>
     <p>28 years, 10 months, 17 days, 9 hours, 13 minutes and 19 seconds</p>
+    <select>
+      <option>Comparați cu</option>
+    </select>
   </section>
-  <header>
-    <h1>Afla mai multe despre</h1>
-</header>
-<main>
-    <section class="games-grid">
-        <div class="game-card">
-            <img src="../../assets/img/country.PNG" alt="Average per Country">
-            <a href="/mm/country" routerLink="/country" routerLinkActive="active" > Speranța de viață pe țări</a>
-        </div>
-        <div class="game-card">
-            <img src="../../assets/img/biblice.PNG" alt="Longevity">
-            <a href="/mm/bible" routerLink="/bible" routerLinkActive="active">Longevivi biblice
-            </a>
-        </div>
-        <div class="game-card">
-            <img src="../../assets/img/Batrani.PNG" alt="Humans">
-            <a href="/mm/people" routerLink="/people" routerLinkActive="active" >Cei mai bătrâni oameni</a>
-        </div>
-        <div class="game-card">
-            <img src="../../assets/img/animale.PNG" alt="Animals">
-            <a href="/mm/animals" routerLink="/animals" routerLinkActive="active">Animalele care au trait cel mai mult</a>
-        </div>
-        <div class="game-card">
-            <img src="../../assets/img/plants.PNG" alt="Plants">
-            <a href="/mm/plants" routerLink="/plants" routerLinkActive="active" >Plantele care au trait cel mai mult</a>
-        </div>
-    </section>
+  <section class="table-section">
+    <div class="table-wrapper">
+      <div class="table-header">
+        <h2></h2>
+      </div>
+      <button (click)="toggleShowAll()" class="toggle-button">
+        {{ showAll ? 'Show less' : 'Show more' }}
+      </button>
+      <table>
+        
+        <thead>
+          <tr>
+            <th>Nume</th>
+            <th>Specia</th>
+            <th>Varsta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let animals of displayedAnimals">
+            <td>{{ animals.name }}</td>
+            <td>{{ animals.det }}</td>
+            <td>{{ animals.age }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 </main>
 
 <app-footer></app-footer>
