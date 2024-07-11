@@ -8,7 +8,7 @@
                 <div class="profile-header">
                     <img src="../../assets/img/test-backup.jpg" alt="Profile Picture" class="profile-picture">
                     <div class="profile-info">
-                        <h2 class="profile-name">Müller Péter</h2>
+                    
                         <div class="profile-buttons">
                             <button class="profile-button">Cunoasterea naturii umane</button>
                             <button class="profile-button">Prietenie</button>
@@ -19,13 +19,23 @@
                     <p>O idee bine formulată poate persista în timp, modelând și definind mentalitatea multor generații. Filosofia, "iubirea de înțelepciune", este pragmatismul înțelepților, care au înțeles adâncimea și înălțimea, atemporalitatea și aspatialitatea relativă a existenței noastre, răspunsul la întrebarea "a fi sau a nu fi", în spatele celor spuse, ceea ce nu se poate rosti. Viețile și experiențele noastre individuale și colective sunt modelate de filosofiile noastre individuale și colective de viață.</p>
                 </div>
                 <div class="profile-sections">
-                    <div class="section">
-                        <h3>Autori nascuti in aceasta zi</h3>
-                        <p>In cautarea sensului si tesand idei ascunse Autorii nascuti azi, zambesc voiosi si mandrii:</p>
+                        <h3>Autori născuți în această zi</h3>
+                        <p>În căutarea sensului și țesând idei ascunse Autorii născuți azi, zâmbesc voioși și mândri:</p>
+                        <div class="author-list">
+                        <div class="author-item" *ngFor="let nascut of nascut_azi">
+                            <img [src]="nascut.image_path" alt="{{ nascut.name }}">
+                            <h4>{{ nascut.name }}</h4>
+                        </div>
                     </div>
-                    <div class="section">
+                    
                         <h3>Autori care au decedat azi</h3>
                         <p>Amintirea lor, o fantana de intelepciuni, in sufletul nostru, eterna sa ramana:</p>
+                        <div class="author-list">
+                            <div class="author-item" *ngFor="let decedat of decedat_azi">
+                                <img  [src]="decedat.image_path" alt="nu merge" [style.width]="img_w" [style.height]="'auto'"> 
+                                <h4>{{ decedat.name }}</h4>
+                            
+                        </div>
                     </div>
                 </div>
             </section>
