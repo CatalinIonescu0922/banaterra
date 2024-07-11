@@ -32,10 +32,9 @@
                         <p>Amintirea lor, o fantana de intelepciuni, in sufletul nostru, eterna sa ramana:</p>
                         <div class="author-list">
                             <div class="author-item" *ngFor="let decedat of decedat_azi">
-                                <img  [src]="decedat.image_path" alt="nu merge" [style.width]="img_w" [style.height]="'auto'"> 
+                                <img [src]="decedat.image_path" alt="{{ decedat.name }}">
                                 <h4>{{ decedat.name }}</h4>
-                            
-                        </div>
+                            </div>
                     </div>
                 </div>
             </section>
@@ -64,7 +63,8 @@
         <section class="donate-section">
             <div class="header-row">
                 <h2 class="bold">Donate</h2>
-                <p class="scris">Prin donațiile dvs., ne ajutați să construim o bibliotecă și să generăm conținut original, atât online cât și offline (carți, artă plastică).<br> <br> <a class="citeste" href="/donate" routerLink="/donate" routerLinkActive="active" >->Citește mai mult...</a> </p>
+                <p class="scris">Prin donațiile dvs., ne ajutați să construim o bibliotecă și să generăm conținut original, atât online cât și offline (carți, artă plastică).<br> <br> <a class="citeste" href="/donate" routerLink="/donate" routerLinkActive="active" >->Citește mai mult...</a>
+                 </p>
             </div>
         </section>
 
@@ -104,7 +104,7 @@
         <section class="about-section">
             <div class="header-row">
                 <h2 class="bold">About Us</h2>
-                <p class="scris">Culturile locale sunt de o importanță globală. Prin comunitatea noastră, încurajăm explorarea și înțelegerea diversității culturale și lingvistice.<br> <br> <a class="citeste">-> Citește mai mult...</a></p>
+                <p class="scris">Culturile locale sunt de o importanță globală. Prin comunitatea noastră, încurajăm explorarea și înțelegerea diversității culturale și lingvistice.<br> <br> <a class="citeste" href="/about_us" routerLink="/about_us" routerLinkActive="active" >->Citește mai mult...</a></p>
             </div>
         </section>
 

@@ -13,6 +13,7 @@ import { PeopleComponent } from './people/people.component';
 import { AnimalsComponent } from './animals/animals.component';
 import { PlantsComponent } from './plants/plants.component';
 import { BibleComponent } from './bible/bible.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 export const routes: Routes = [
     {path : "" , component : HomeComponentComponent},
     {path : "topics" ,component: TopicsComponent},
@@ -20,6 +21,7 @@ export const routes: Routes = [
     {path : "authors" , children :[{path : "details/:authorId/:languageId", component : AuthorDetailsComponent}]},
     {path : "learn", component : LearnComponent},
     {path : "donate" , component : DonateComponent},
+    {path : "about_us", component : AboutUsComponent}, 
     {path : "mm" , component : MMComponent},
     {path : "mm" , children :[{path : "country", component : CountryComponent}]},
     {path : "mm" , children :[{path : "people", component : PeopleComponent}]},
