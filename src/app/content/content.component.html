@@ -5,19 +5,6 @@
      <section class="profile-section">
         <section class="profile-section">
             <section class="profile-section">
-                <div class="profile-header">
-                    <img src="../../assets/img/test-backup.jpg" alt="Profile Picture" class="profile-picture">
-                    <div class="profile-info">
-                    
-                        <div class="profile-buttons">
-                            <button class="profile-button">Cunoasterea naturii umane</button>
-                            <button class="profile-button">Prietenie</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="profile-description">
-                    <p>O idee bine formulată poate persista în timp, modelând și definind mentalitatea multor generații. Filosofia, "iubirea de înțelepciune", este pragmatismul înțelepților, care au înțeles adâncimea și înălțimea, atemporalitatea și aspatialitatea relativă a existenței noastre, răspunsul la întrebarea "a fi sau a nu fi", în spatele celor spuse, ceea ce nu se poate rosti. Viețile și experiențele noastre individuale și colective sunt modelate de filosofiile noastre individuale și colective de viață.</p>
-                </div>
                 <div class="profile-sections">
                         <h3>Autori născuți în această zi</h3>
                         <p>În căutarea sensului și țesând idei ascunse Autorii născuți azi, zâmbesc voioși și mândri:</p>
@@ -36,6 +23,12 @@
                                 <h4>{{ decedat.name }}</h4>
                             </div>
                     </div>
+                    <div class="author-list">
+                        <div class="author-item" *ngFor="let days of day">
+                            <h3>{{ days.name }}</h3>
+                            <h5>{{ days.des }}</h5>
+                        </div>
+                </div>
                 </div>
             </section>
             <div class="profile-sections">

@@ -7,6 +7,18 @@ header {
     margin-left: 40px;
 }
 
+.text-content {
+    width: 60%;
+}
+
+.text-content h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 700;
+    margin-left: 385px;
+}
+
 .banner img {
     width: 100%;
     height: auto;
