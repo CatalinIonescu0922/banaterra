@@ -23,6 +23,7 @@
                                 <h4>{{ decedat.name }}</h4>
                             </div>
                     </div>
+                    <h3>Azi in lume:</h3>
                     <div class="author-list">
                         <div class="author-item" *ngFor="let days of day">
                             <h3>{{ days.name }}</h3>
@@ -74,24 +75,20 @@
         </section>
         
         <section class="collaboration-section">
-            <div class="companies-list">
-                <div class="company-item">
-                    <h3 class="company-name">A&C Consulting Center</h3>
-                    <p class="company-website">accc.ro</p>
+            <div class="carousel-container">
+                <button (click)="prevSlide()" class="carousel-arrow left-arrow">&#9664;</button>
+                <div class="carousel-wrapper">
+                  <div class="carousel">
+                    <div class="carousel-item" *ngFor="let sponsor of sponsors">
+                      <div class="sponsor-card">
+                        <h3>{{ sponsor.name }}</h3>
+                        <a [href]="sponsor.rep_name" target="_blank">{{ sponsor.rep_name }}</a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="company-item">
-                    <h3 class="company-name">A&C Consulting Center</h3>
-                    <p class="company-website">accc.ro</p>
-                </div>
-                <div class="company-item">
-                    <h3 class="company-name">A&C Consulting Center</h3>
-                    <p class="company-website">accc.ro</p>
-                </div>
-                <div class="company-item">
-                    <h3 class="company-name">A&C Consulting Center</h3>
-                    <p class="company-website">accc.ro</p>
-                </div>
-            </div>
+                <button (click)="nextSlide()" class="carousel-arrow right-arrow">&#9654;</button>
+              </div>
         </section>
 
         <section class="about-section">
@@ -105,30 +102,6 @@
             <img src="../../assets/img/banner_3.jpg" alt="Banner Image">
         </section>
 
-        <section class="collaboration-section">
-            <div class="header-row">
-                <h2 class="bold">Colaborare</h2>
-                <p class="scris1">We are proud to collaborate with companies that value sharing and supporting values.</p>
-            </div>
-            <div class="companies-list">
-                <div class="company-item">
-                    <h3 class="company-name">A&C Consulting Center</h3>
-                    <p class="company-website">accc.ro</p>
-                </div>
-                <div class="company-item">
-                    <h3 class="company-name">A&C Consulting Center</h3>
-                    <p class="company-website">accc.ro</p>
-                </div>
-                <div class="company-item">
-                    <h3 class="company-name">A&C Consulting Center</h3>
-                    <p class="company-website">accc.ro</p>
-                </div>
-                <div class="company-item">
-                    <h3 class="company-name">A&C Consulting Center</h3>
-                    <p class="company-website">accc.ro</p>
-                </div>
-            </div>
-        </section> 
     </section>
 
 
