@@ -1,0 +1,34 @@
+<app-nav-bar></app-nav-bar>
+<header>
+  <h1>Books</h1>
+  <div class="header-links">
+    <div class="dropdown">
+      <button (click)="toggleViewAll()" class="dropbtn">
+        {{ isViewAll ? 'View Less' : 'View All' }}
+      </button>
+    </div>
+    <a class="dropbtn" href="/add-books" style="text-decoration: none;">Add Books</a>
+  </div>
+</header>
+
+<main>
+  <div class="books">
+  </div>
+</main>
+
+<div class="pagination-container" *ngIf="isViewAll && !selectedBook">
+  <div class="pagination">
+    <a (click)="setFirstPage()" class="pagination-arrow"> << </a>
+    <a *ngIf="currentPage > 1" (click)="setPreviousPage()" class="pagination-arrow"> < </a>
+    <a *ngFor="let page of getVisiblePages()"
+       [ngClass]="{ 'current-page': page === currentPage }"
+       (click)="setPage(page)" class="pagination-arrow">{{ page }}</a>
+    <a *ngIf="currentPage < getTotalPages()" (click)="setNextPage()" class="pagination-arrow"> > </a>
+    <a (click)="setLastPage()" class="pagination-arrow"> >> </a>
+  </div>
+</div>
+
+<section class="banner">
+
+</section>
+<app-footer></app-footer>
