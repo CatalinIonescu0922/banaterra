@@ -13,8 +13,16 @@
 
 <main>
   <div class="books">
+    <div class="book" *ngFor="let book of getDisplayedBooks()">
+      <div class="book-square">
+        <img src="../../assets/img/book.jpg" alt="{{ book.book_name }}" />
+      </div>
+      <h2>{{ book.book_name }}</h2>
+    </div>
   </div>
 </main>
+
+
 
 <div class="pagination-container" *ngIf="isViewAll && !selectedBook">
   <div class="pagination">

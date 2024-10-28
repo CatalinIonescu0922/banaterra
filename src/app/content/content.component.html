@@ -9,7 +9,7 @@
                         <h3>Autori născuți în această zi</h3>
                         <p>În căutarea sensului și țesând idei ascunse Autorii născuți azi, zâmbesc voioși și mândri:</p>
                         <div class="author-list">
-                        <div class="author-item" *ngFor="let nascut of nascut_azi">
+                        <div class="author-item" *ngFor="let nascut of nascut_azi" (click)="selectAuthor(nascut.id)" class="author">
                             <img [src]="nascut.image_path" alt="{{ nascut.name }}">
                             <h4>{{ nascut.name }}</h4>
                         </div>
@@ -18,7 +18,7 @@
                         <h3>Autori care au decedat azi</h3>
                         <p>Amintirea lor, o fantana de intelepciuni, in sufletul nostru, eterna sa ramana:</p>
                         <div class="author-list">
-                            <div class="author-item" *ngFor="let decedat of decedat_azi">
+                            <div class="author-item" *ngFor="let decedat of decedat_azi" (click)="selectAuthor(decedat.id)" class="author">
                                 <img [src]="decedat.image_path" alt="{{ decedat.name }}">
                                 <h4>{{ decedat.name }}</h4>
                             </div>
