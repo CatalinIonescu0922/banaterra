@@ -73,7 +73,7 @@ export class AuthorsComponent implements OnInit {
   }
 
   selectAuthor(authorId: number): void {
-    console.log('Click on author with this id', authorId);
+    // console.log('Click on author with this id', authorId);
 
     // Fetch the current language code from LanguageService
     this.languageService.currentLanguage.subscribe(langCode => {

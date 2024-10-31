@@ -1,60 +1,34 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { catchError, tap } from 'rxjs/operators';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { Book } from './models/book';  // Adjust the path as necessary
-import { HtmlEntities } from './models/HtmlEntities';
-
+import { Observable } from 'rxjs';
+import { Book } from './models/book';
+import { Language } from './models/language';
 
 @Injectable({
- providedIn: 'root',
+  providedIn: 'root',
 })
-export class BooksService {
- private baseUrl = 'http://localhost:8000/book';
+export class BookService {
+  private apiUrl = 'http://localhost:8000/books'; // Replace with your backend URL
 
- constructor(private http: HttpClient, private sanitizer: DomSanitizer) {}
+  constructor(private http: HttpClient) {}
 
-
- getBooks(): Observable<Book[]> {
-  return this.http.get<Book[]>(this.baseUrl).pipe(
-      map(books => books.map(book => {
-          return book;
-      }))
-  );
-}
-
-
-
-/*
-  // În authors.service.ts, actualizează metoda care face interogarea pentru a include limba
-// În authors.service.ts
-getAuthorDetails(authorId: number, languageId: String): Observable<Author> {
-    const url = `${this.baseUrl}/detail/${authorId}/${languageId}`;  // Include languageId în URL
-    console.log("Fetching details from URL:", url);
-    return this.http.get<Author>(url).pipe(
-        tap(author => console.log('Fetched author details:', author)),
-        catchError(error => {
-            console.error('Error fetching author details:', error);
-            return throwError(() => new Error('Error fetching author details'));
-        })
-    );
+  // Fetch list of languages
+  getLanguages(): Observable<Language[]> {
+    return this.http.get<Language[]>(`${this.apiUrl}`);
   }
-*/
 
+  // Fetch original books by language
+  getOriginalBooksByLanguage(languageId: number): Observable<Book[]> {
+    return this.http.get<Book[]>(`${this.apiUrl}/original/${languageId}`);
+  }
 
+  // Fetch translated books by language
+  getTranslatedBooksByLanguage(languageId: number): Observable<Book[]> {
+    return this.http.get<Book[]>(`${this.apiUrl}/translated/${languageId}`);
+  }
 
-  private decodeHTML(html: string): string {
-    const htmlEntities: HtmlEntities = {
-        "&lt;": "<",
-        "&gt;": ">",
-        "&amp;": "&",
-        "&quot;": "\"",
-        "&#39;": "'"
-    };
-
-    return html.replace(/&lt;|&gt;|&amp;|&quot;|&#39;/g, (match) => htmlEntities[match] || match);
-}
-
+  // Fetch book details by ID
+  getBookById(bookId: string): Observable<Book> {
+    return this.http.get<Book>(`${this.apiUrl}/${bookId}`);
+  }
 }

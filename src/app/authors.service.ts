@@ -35,7 +35,6 @@ getAuthorDetails(authorId: string, languageId: String): Observable<Author> {
     const url = `${this.baseUrl}/details/${authorId}/${languageId}`;  // Include languageId în URL
     console.log("Fetching details from URL:", url);
     return this.http.get<Author>(url).pipe(
-        tap(author => console.log('Fetched author details:', author)),
         catchError(error => {
             console.error('Error fetching author details:', error);
             return throwError(() => new Error('Error fetching author details'));
