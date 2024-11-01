@@ -156,3 +156,7 @@ main {
 
 
 
+.game-card a {
+  text-decoration: none;
+  color: black;
+}
