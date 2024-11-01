@@ -15,12 +15,14 @@ import { PlantsComponent } from './plants/plants.component';
 import { BibleComponent } from './bible/bible.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { BooksComponent } from './books/books.component';
+import { BooksdetailsComponent } from './booksdetails/booksdetails.component';
 export const routes: Routes = [
     {path : "" , component : HomeComponentComponent},
     {path : "topics" ,component: TopicsComponent},
     {path : "authors" , component : AuthorsComponent},
-    {path: "books",component : BooksComponent},
     {path : "authors" , children :[{path : "details/:authorId/:languageId", component : AuthorDetailsComponent}]},
+    {path: "books",component : BooksComponent},
+    {path : "books",  children : [{path : "details/:bookId", component : BooksdetailsComponent}]},
     {path : "learn", component : LearnComponent},
     {path : "donate" , component : DonateComponent},
     {path : "about_us", component : AboutUsComponent}, 

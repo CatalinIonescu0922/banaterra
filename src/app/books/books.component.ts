@@ -6,6 +6,7 @@ import { Language } from '../models/language';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { CommonModule } from '@angular/common';
+import { state } from '@angular/animations';
 
 @Component({
   selector: 'app-books',
@@ -72,6 +73,9 @@ export class BooksComponent implements OnInit {
 
   // Navigate to book details page
   viewBookDetails(bookId: string): void {
-    this.router.navigate(['/books', bookId]);
+    const book = this.books.find(b => b.id=bookId);
+    if(book)
+      this.router.navigate(['/books/details', bookId], {state : {name : book.book_name, author : book.book_author}});
+    
   }
 }

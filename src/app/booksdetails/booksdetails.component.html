@@ -1,0 +1,20 @@
+<app-nav-bar></app-nav-bar>
+<div class="book-details">
+  <h2 class="book-title">{{ bookName }}</h2>
+  <p class="book-author">by {{ bookAuthor }}</p>
+
+  <div class="button-container">
+    <button (click)="viewAllQuotes()">View All Quotes</button>
+    <button (click)="viewByChapter()">View by Chapter</button>
+  </div>
+
+  <div *ngIf="quotes.length > 0" class="quotes-container">
+    <h3 class="quotes-title">Quotes</h3>
+    <ul class="quotes-list">
+      <li *ngFor="let quote of quotes" class="quote-item">
+        “{{ quote }}”
+      </li>
+    </ul>
+  </div>
+</div>
+<app-footer></app-footer>
