@@ -8,7 +8,7 @@ body {
 
 /* Header styles */
 header {
-  background-color: #386faa;
+  background-color: #d9534f;
   color: #fff;
   padding: 10px 20px;
   display: flex;
@@ -28,7 +28,7 @@ header h1 {
 
 .dropbtn {
   background-color: #fff;
-  color: #386faa;
+  color: #d9534f;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
@@ -100,19 +100,19 @@ main {
 .pagination-arrow {
   cursor: pointer;
   padding: 5px 10px;
-  background-color: #007bff;
+  background-color: #d9534f;
   color: #fff;
   border-radius: 5px;
   text-align: center;
 }
 
 .pagination-arrow:hover {
-  background-color: #0056b3;
+  background-color: #d9534f;
 }
 
 .current-page {
   font-weight: bold;
-  background-color: #0056b3;
+  background-color: #d9534f;
 }
 
 /* Banner styles */
@@ -124,7 +124,7 @@ main {
 
 /* Footer styles */
 footer {
-  background-color: #007bff;
+  background-color: #d9534f;
   color: #fff;
   padding: 10px 20px;
   text-align: center;
