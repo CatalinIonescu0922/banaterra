@@ -17,23 +17,21 @@
             </div>
         </div>
         <div class="language-select">
-            <select>
-                <option>Arabic</option>
-                <option>Armenian</option>
-                <option>English</option>
-                <option>French</option>
-                <option>Hungarian</option>
-                <option>Romanian</option>
+            <select [(ngModel)]="selectedLanguageId">
+                <option *ngFor="let language of languages" [value]="language.id">{{ language.name }}</option>
             </select>
-            <select>
-                <option>Arabic</option>
-                <option>Armenian</option>
-                <option>English</option>
-                <option>French</option>
-                <option>Hungarian</option>
-                <option>Romanian</option>
+            <select [(ngModel)]="selectedLanguageId2">
+                <option *ngFor="let language of languages" [value]="language.id">{{ language.name }}</option>
             </select>
-            <button class="go-button">GO</button>
+            <button class="go-button" (click)="fetchQuotes()">GO</button>
+        </div>
+        <div *ngIf="quotes && quotes.length" class="quotes-container">
+            <ul>
+                <li *ngFor="let quote of quotes" class="quote-item">
+                    <blockquote>{{ quote.original }}</blockquote>
+                    <blockquote class="translation">{{ quote.translation }}</blockquote>
+                </li>
+            </ul>
         </div>
     </main>
 <app-footer></app-footer>
