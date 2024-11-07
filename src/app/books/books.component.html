@@ -2,6 +2,8 @@
 
 <div class="language-container">
   <h2>Select a Language</h2>
+  <h2> <input type="file" (change)="onFileChange($event)"></h2>
+ <h2><button (click)="sendDataToBackend()" [disabled]="!fileData">Upload and Send Data</button></h2> 
   <div *ngFor="let language of languages" (click)="selectLanguage(language.id)" class="language-card">
     {{ language.name }}
   </div>
@@ -15,6 +17,7 @@
 <div *ngIf="books.length > 0" class="book-container">
   <h2 *ngIf="isOriginalSelected">Original Books in {{ getSelectedLanguageName() }}</h2>
   <h2 *ngIf="!isOriginalSelected">Translated Books in {{ getSelectedLanguageName() }}</h2>
+   <a class="dropbtn" href="/add-book" style="text-decoration: none;">Add Bookr</a>
 
   <div *ngFor="let book of books" class="book-card" (click)="viewBookDetails(book.id)">
     <h3>{{ book.book_name }}</h3>

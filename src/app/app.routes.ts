@@ -16,6 +16,7 @@ import { BibleComponent } from './bible/bible.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { BooksComponent } from './books/books.component';
 import { BooksdetailsComponent } from './booksdetails/booksdetails.component';
+import { AddBookComponent } from './add-book/add-book.component';
 export const routes: Routes = [
     {path : "" , component : HomeComponentComponent},
     {path : "topics" ,component: TopicsComponent},
@@ -33,6 +34,7 @@ export const routes: Routes = [
     {path : "mm" , children :[{path : "plants", component : PlantsComponent}]},
     {path : "mm" , children :[{path : "bible", component : BibleComponent}]},
     {path : "login" , component : LoginComponent},
-    {path : "add-authors",component : AddAuthorsComponent}
+    {path : "add-authors",component : AddAuthorsComponent},
+    {path : "add-book",component : AddBookComponent}
     
 ];

@@ -10,7 +10,6 @@
     <a class="dropbtn" href="/add-authors" style="text-decoration: none;">Add Author</a>
   </div>
 </header>
-
 <main>
   <div class="authors">
     <div *ngFor="let author of getDisplayedAuthors()" (click)="selectAuthor(author.id)" class="author">

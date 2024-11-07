@@ -6,8 +6,10 @@ import { Language } from '../models/language';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { FooterComponent } from '../footer/footer.component';
 import { CommonModule } from '@angular/common';
-import { state } from '@angular/animations';
-
+import * as XLSX from 'xlsx'
+import { HttpClient } from '@angular/common/http';
+import { ExtractedDataOrg } from '../models/extractedData_Org';
+import { ExtractedDataTrans } from '../models/extractedData_Trans';
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
@@ -19,9 +21,11 @@ export class BooksComponent implements OnInit {
   languages: Language[] = [];
   books: Book[] = [];
   selectedLanguageId: number | null = null;
-  isOriginalSelected: boolean = true; // Tracks whether Original or Translations is selected
-
-  constructor(private bookService: BookService, private router: Router) {}
+  isOriginalSelected: boolean = true;
+  fileData: any = null; // Holds the parsed Excel data
+  extractedData_Org: ExtractedDataOrg[] = [];
+  extractedData_Trans: ExtractedDataTrans[] = []; // Tracks whether Original or Translations is selected
+  constructor(private bookService: BookService, private router: Router, private http : HttpClient) {}
 
   ngOnInit(): void {
     this.bookService.getLanguages().subscribe({
@@ -31,7 +35,7 @@ export class BooksComponent implements OnInit {
       error: (err) => console.error('Error fetching languages:', err)
     });
   }
-
+  
   selectLanguage(languageId: number): void {
     this.selectedLanguageId = languageId;
     this.showOriginalBooks(); // Default to showing original books when a language is selected
@@ -78,4 +82,82 @@ export class BooksComponent implements OnInit {
       this.router.navigate(['/books/details', bookId], {state : {name : book.book_name, author : book.book_author}});
     
   }
+  onFileChange(event: any): void {
+    const target: DataTransfer = <DataTransfer>(event.target);
+
+    if (target.files.length !== 1) {
+      alert('Please select a single file');
+      return;
+    }
+
+    const reader: FileReader = new FileReader();
+    reader.onload = (e: any) => {
+      const arrayBuffer: ArrayBuffer = e.target.result;
+      const data = new Uint8Array(arrayBuffer);
+      const binaryStr = Array.from(data).map(byte => String.fromCharCode(byte)).join('');
+      const workbook: XLSX.WorkBook = XLSX.read(binaryStr, { type: 'binary' });
+
+      workbook.SheetNames.forEach((sheetName, index) => {
+        const worksheet = workbook.Sheets[sheetName];
+        const code = sheetName.slice(0, 2).toLowerCase();
+
+        // Process the first sheet with the `author_name` structure
+        if (index === 0) {
+          const firstSheetData: any[] = XLSX.utils.sheet_to_json(worksheet, { header: 1 }) as any[];
+          const headerRow = firstSheetData[0];
+          
+          const processedData = firstSheetData.slice(1).map(row => ({
+            code,
+            book_name: row[headerRow.indexOf('book_name')],
+            author_name: row[headerRow.indexOf('author_name')],
+            chapter: Number(row[headerRow.indexOf('chapter')]),
+            quote: row[headerRow.indexOf('quote')],
+            link_carte: row[headerRow.indexOf('link_carte')],
+            poza: row[headerRow.indexOf('poza')]
+          }));
+
+          this.extractedData_Org.push(...processedData);
+        } 
+        // Process remaining sheets with the `translator_name` structure
+        else {
+          const sheetData: any[] = XLSX.utils.sheet_to_json(worksheet, { header: 1 }) as any[];
+          const headerRow = sheetData[0];
+
+          const processedData = sheetData.slice(1).map(row => ({
+            code,
+            book_name: row[headerRow.indexOf('book_name')],
+            translator_name: row[headerRow.indexOf('translator_name')],
+            chapter: Number(row[headerRow.indexOf('chapter')]),
+            quote: row[headerRow.indexOf('quote')],
+            link_carte: row[headerRow.indexOf('link_carte')],
+            poza: row[headerRow.indexOf('poza')]
+          }));
+
+          this.extractedData_Trans.push(...processedData);
+        }
+      });
+
+      // Store the combined data to be sent on button click
+      this.fileData = { extractedData_Org: this.extractedData_Org, extractedData_Trans: this.extractedData_Trans };
+    };
+
+    reader.readAsArrayBuffer(target.files[0]);
+  }
+
+  sendDataToBackend() {
+
+    if (this.fileData) {
+      console.log(this.fileData);
+      this.http.post('http://localhost:8000/add-excel/books', this.fileData).subscribe(
+        response => {
+          console.log('Data sent successfully:', response);
+        },
+        error => {
+          console.error('Error sending data:', error);
+        }
+      );
+    } else {
+      console.error("No data to send.");
+    }
+  }  
 }
