@@ -4,11 +4,13 @@ import { Observable } from 'rxjs';
 import { Book } from './models/book';
 import { Language } from './models/language';
 
+import { environment } from './../environments/environment';
+
 @Injectable({
   providedIn: 'root',
 })
 export class BookService {
-  private apiUrl = 'http://localhost:8000/books'; // Replace with your backend URL
+  private apiUrl = environment.apiUrl + '/books'; // Replace with your backend URL
 
   constructor(private http: HttpClient) {}
 
