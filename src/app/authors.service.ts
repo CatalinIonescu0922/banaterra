@@ -6,13 +6,13 @@ import { catchError, tap } from 'rxjs/operators';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Author } from './models/author';  // Adjust the path as necessary
 import { HtmlEntities } from './models/HtmlEntities';
-
+import { environment } from '../environments/environment';
 
 @Injectable({
  providedIn: 'root',
 })
 export class AuthorsService {
- private baseUrl = 'http://localhost:8000/authors';
+ private baseUrl = environment.apiUrl +"/authors";
 
  constructor(private http: HttpClient, private sanitizer: DomSanitizer) {}
 

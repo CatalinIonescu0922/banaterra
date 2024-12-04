@@ -4,12 +4,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { MM_day } from './models/day';
-
+import { environment } from '../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class DayService {
-  private apiUrl = 'http://localhost:8000/day';
+  private apiUrl = environment.apiUrl + '/day';
 
   constructor(private http: HttpClient) {}
 
