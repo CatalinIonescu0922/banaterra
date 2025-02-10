@@ -1,0 +1,72 @@
+
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: 100vw;
+   
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 350px; /* Adjust width as needed */
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    font-size: 24px; /* Larger title font size */
+}
+
+.input-group {
+    margin-bottom: 20px; /* Increased spacing */
+}
+
+.input-group label {
+    display: block;
+    color: #666;
+    margin-bottom: 8px;
+    font-size: 16px; /* Larger label font size */
+}
+
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="password"],
+.input-group input[type="date"],
+.input-group select {
+    width: 100%;
+    padding: 12px; /* Increased padding for larger touch area */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px; /* Larger text font size */
+}
+
+.input-group.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.input-group.checkbox-group label {
+    margin-left: 8px;
+    font-size: 14px; /* Larger checkbox label font size */
+}
+
+button {
+    width: 100%;
+    padding: 12px; /* Increased padding */
+    border: none;
+    background-color: #c98a4e;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px; /* Larger button text size */
+}
+
+button:hover {
+    background-color: #c98a4e;
+}

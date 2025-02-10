@@ -81,6 +81,7 @@ button {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-top: 10px;
 }
 
 button:hover {
@@ -91,4 +92,17 @@ button:hover {
 h2 {
     margin-bottom: 1.5rem; /* Slightly larger margin for header */
     color: #333;
+}
+
+btn {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #e0a96d; /* Adjusted to match the color theme from the navigation bar */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
 }
