@@ -98,3 +98,25 @@ main {
 .go-button:hover {
     background-color: #45a049;
 }
+
+.quotes-container {
+    margin: 20px;
+    padding: 10px;
+    background-color: #f9f9f9; /* Light grey background for the quotes container */
+    border-left: 5px solid #ccc; /* Adds a left border for style */
+    border-radius: 5px; /* Optional: rounds the corners of the container */
+}
+
+.quote-item blockquote {
+    font-style: italic; /* Makes the quote text italic */
+    color: #555; /* Dark grey text color */
+    padding: 10px 20px; /* Padding inside each quote */
+    margin: 10px 0; /* Space between quotes */
+    border-left: 3px solid #8a2be2; /* A colored line before the quote */
+    background-color: #fff; /* White background for each quote */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1); /* Adds a subtle shadow around each quote */
+}
+
+.quote-item {
+    list-style-type: none; /* Removes bullet points */
+}

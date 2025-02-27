@@ -4,12 +4,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { MM_sponsors } from './models/sponsors';
-
+import { environment } from '../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class CompaniiService {
-  private apiUrl = 'http://localhost:8000/companii';
+  private apiUrl = environment.apiUrl + '/companii';
 
   constructor(private http: HttpClient) {}
 

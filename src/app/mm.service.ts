@@ -4,12 +4,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { MM_country } from './models/mm';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CountryService {
-  private apiUrl = 'http://localhost:8000/mm';
+  private apiUrl = environment.apiUrl + "/mm";
 
   constructor(private http: HttpClient) {}
 

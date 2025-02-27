@@ -4,12 +4,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { MM_bible } from './models/bible';
-
+import { environment } from '../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class BibleService {
-  private apiUrl = 'http://localhost:8000/bible';
+  private apiUrl = environment.apiUrl + '/bible';
 
   constructor(private http: HttpClient) {}
 

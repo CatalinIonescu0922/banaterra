@@ -4,12 +4,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { MM_plants } from './models/plants';
-
+import { environment } from '../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class PlantsService {
-  private apiUrl = 'http://localhost:8000/plants';
+  private apiUrl = environment.apiUrl + '/plants';
 
   constructor(private http: HttpClient) {}
 
