@@ -24,7 +24,7 @@ export class BooksComponent implements OnInit {
   isOriginalSelected: boolean = true;
   fileData: any = null; // Holds the parsed Excel data
   extractedData_Org: ExtractedDataOrg[] = [];
-  extractedData_Trans: ExtractedDataTrans[] = []; // Tracks whether Original or Translations is selected
+  extractedData_Trans: ExtractedDataTrans[] = []; 
   constructor(private bookService: BookService, private router: Router, private http : HttpClient) {}
 
   ngOnInit(): void {
