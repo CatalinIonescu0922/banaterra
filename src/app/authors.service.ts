@@ -12,6 +12,7 @@ import { environment } from '../environments/environment';
  providedIn: 'root',
 })
 export class AuthorsService {
+    
  private baseUrl = environment.apiUrl +"/authors";
 
  constructor(private http: HttpClient, private sanitizer: DomSanitizer) {}
