@@ -70,3 +70,15 @@ button {
 button:hover {
     background-color: #c98a4e;
 }
+.sign-in-link {
+    color: #d49a5d;          /* același ton cald ca butonul */
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  /* efect discret la hover */
+  .sign-in-link:hover {
+    color: #b57f46;
+    text-decoration: none;
+  }

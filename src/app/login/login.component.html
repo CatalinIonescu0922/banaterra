@@ -1,20 +1,37 @@
-    <app-nav-bar></app-nav-bar>
-  <div class="mega-container">  
-   <div class="login-container">
-        <form (submit)="login()">
-            <h2>Welcome Back!</h2>
-            <div class="input-group">
-                <input type="email" id="email" name="email" required placeholder="Enter your email">
-            </div>
-            <div class="input-group">
-                <input type="password" id="password" name="password" required placeholder="Enter your password">
-            </div>
-            <button type="submit">Sign In</button>
-        </form>
-        
-    </div>
-    <button class="btn" (click)="changeToCreate_Account()">No Account? Register here</button>
+<app-nav-bar></app-nav-bar>
+<div class="mega-container">
+  <div class="login-container">
+    <form (ngSubmit)="login()">
+      <h2>Welcome Back!</h2>
+
+      <div class="input-group">
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          required
+          placeholder="Enter your email"
+        />
+      </div>
+
+      <div class="input-group">
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          required
+          placeholder="Enter your password"
+        />
+      </div>
+
+      <button type="submit">Sign In</button>
+    </form>
+
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
   </div>
-    <app-footer></app-footer>
 
-
+  <button class="btn" (click)="changeToCreate_Account()">
+    No Account? Register here
+  </button>
+</div>
+<app-footer></app-footer>
